@@ -20,6 +20,9 @@ function DetailContent(props) {
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
   const navigate = useNavigate();
 
+  // 사이즈 변경 변수
+  const [selectedSize, setSelectedSize] = useState("");
+
   useEffect(() => {
     axios
       .get(`https://kku-git.github.io/nff_product/${category}.json`)
@@ -81,7 +84,11 @@ function DetailContent(props) {
             </p>
             {category === "fingers" && (
               <div className="select-wrapper">
-                <select className="size-select">
+                <select
+                  className="size-select"
+                  value={selectedSize}
+                  onChange={(e) => setSelectedSize(e.target.value)}
+                >
                   <option value="">사이즈를 선택해주세요</option>
                   <option value="S">S</option>
                   <option value="M">M</option>

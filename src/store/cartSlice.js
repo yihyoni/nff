@@ -7,8 +7,12 @@ let cart = createSlice({
   reducers: {
     // 상품 추가 및 수량 증가 - 이미 있으면 수량 증가, 없으면 상품 추가
     addCartItem: function (state, action) {
-      const found = state.find((item) => item.id === action.payload.id);
-
+      const found = state.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.size === action.payload.size &&
+          item.category === action.payload.category
+      );
       if (found) {
         found.count++;
       } else {
@@ -23,15 +27,28 @@ let cart = createSlice({
 
     // 단순한 수량 증가 + 버튼
     addCount: function (state, action) {
-      let 번호 = state.findIndex((item) => item.id === action.payload);
-      state[번호].count++;
+      let 번호 = state.findIndex(
+        (item) =>
+          item.id === action.payload.id &&
+          item.category === action.payload.category &&
+          item.size === action.payload.size
+      );
+
+      if (번호 !== -1) {
+        state[번호].count++;
+      }
     },
 
     // 단순한 수량 감소 - 버튼
     decreaseCount: function (state, action) {
-      let 번호 = state.findIndex((item) => item.id === action.payload);
+      let 번호 = state.findIndex(
+        (item) =>
+          item.id === action.payload.id &&
+          item.category === action.payload.category &&
+          item.size === action.payload.size
+      );
 
-      if (state[번호].count > 1) {
+      if (번호 !== -1 && state[번호].count > 1) {
         state[번호].count--;
       }
     },

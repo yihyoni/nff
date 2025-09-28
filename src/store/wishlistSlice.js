@@ -6,7 +6,11 @@ let wishlist = createSlice({
   reducers: {
     // 상품 추가 - 위시리스트 목록에 없으면 상품 추가 / 이미 있으면 무시 - 하트버튼
     addWishlistItem: function (state, action) {
-      const found = state.find((item) => item.id === action.payload.id);
+      const found = state.find(
+        (item) =>
+          item.id === action.payload.id &&
+          item.category === action.payload.category
+      );
       if (!found) {
         state.push(action.payload);
       }
