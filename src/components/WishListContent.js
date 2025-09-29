@@ -60,7 +60,7 @@ function WishListContent(props) {
                     <button
                       className="cart-button"
                       onClick={() => {
-                        dispatch(addCartItem({ ...item, count: 1 }));
+                        dispatch(addCartItem({ ...item, count: 1, size: "" }));
                         dispatch(removeWishlistItem(item));
                         alert("장바구니에 담았습니다.");
                       }}

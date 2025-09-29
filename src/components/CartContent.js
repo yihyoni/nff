@@ -30,7 +30,6 @@ function CartContent(props) {
   const grandTotal = totalPrice + deliveryFee;
 
   // 사이즈 창 토글
-  // const [sizeModalOpen, setSizeModalOpen] = useState(false);
   const [openItemId, setOpenItemId] = useState(null);
 
   // 사이즈 변경 변수
@@ -81,14 +80,44 @@ function CartContent(props) {
                     <div className="item-count">
                       <button
                         className="quantity-minus"
-                        onClick={() => dispatch(decreaseCount(item.id))}
+                        onClick={() =>
+                          dispatch(
+                            decreaseCount(
+                              item.category === "fingers"
+                                ? {
+                                    id: item.id,
+                                    category: item.category,
+                                    size: item.size,
+                                  }
+                                : {
+                                    id: item.id,
+                                    category: item.category,
+                                  }
+                            )
+                          )
+                        }
                       >
                         <img src="/minus.svg" alt="minus" />
                       </button>
                       <span className="quantity-number">{item.count}</span>
                       <button
                         className="quantity-plus"
-                        onClick={() => dispatch(addCount(item.id))}
+                        onClick={() =>
+                          dispatch(
+                            addCount(
+                              item.category === "fingers"
+                                ? {
+                                    id: item.id,
+                                    category: item.category,
+                                    size: item.size,
+                                  }
+                                : {
+                                    id: item.id,
+                                    category: item.category,
+                                  }
+                            )
+                          )
+                        }
                       >
                         <img src="/plus.svg" alt="plus" />
                       </button>

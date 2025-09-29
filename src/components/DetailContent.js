@@ -44,16 +44,18 @@ function DetailContent(props) {
   // 하트 위시리시트 토글 함수
   const toggleWishlistItem = () => {
     if (!LoggedIn) {
-      alert("로그인 후 이용해주세요!");
+      alert("로그인 후 이용해주세요.");
       navigate("/login");
       return;
     }
     if (isWished) {
       console.log("삭제 실행");
       dispatch(removeWishlistItem({ id: product.id, category }));
+      alert("위시리스트에서 삭제되었습니다.");
     } else {
       console.log("추가 실행");
       dispatch(addWishlistItem({ ...product, category }));
+      alert("위시리스트에 추가되었습니다.");
     }
   };
 
@@ -112,7 +114,23 @@ function DetailContent(props) {
               <button
                 className="add-button"
                 onClick={() => {
-                  dispatch(addCartItem({ ...product, count: 1, category }));
+                  // 반지 사이즈 경고창
+                  if (category === "fingers" && !selectedSize) {
+                    alert("사이즈를 선택해주세요.");
+                    return;
+                  }
+
+                  //  장바구니에 추가
+                  dispatch(
+                    addCartItem(
+                      category === "fingers"
+                        ? { ...product, count: 1, category, size: selectedSize }
+                        : { ...product, count: 1, category }
+                    )
+                  );
+
+                  // 장바구니 담은거 알람
+                  alert("장바구니에 담겼습니다.");
                 }}
               >
                 ADD TO CART
