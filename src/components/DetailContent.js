@@ -23,6 +23,13 @@ function DetailContent(props) {
   // 사이즈 변경 변수
   const [selectedSize, setSelectedSize] = useState("");
 
+  // 장바구니 확인 모달창
+  const [showModal, setShowModal] = useState(false);
+
+  // 방금 담은 상품 정보 저장
+  const [addedItem, setAddedItem] = useState(null);
+
+  // 상품 데이터 갖고오기
   useEffect(() => {
     axios
       .get(`https://kku-git.github.io/nff_product/${category}.json`)
@@ -120,14 +127,15 @@ function DetailContent(props) {
                     return;
                   }
 
+                  const itemToAdd =
+                    category === "fingers"
+                      ? { ...product, count: 1, category, size: selectedSize }
+                      : { ...product, count: 1, category };
+
                   //  장바구니에 추가
-                  dispatch(
-                    addCartItem(
-                      category === "fingers"
-                        ? { ...product, count: 1, category, size: selectedSize }
-                        : { ...product, count: 1, category }
-                    )
-                  );
+                  dispatch(addCartItem(itemToAdd));
+                  setAddedItem(itemToAdd);
+                  setShowModal(true);
 
                   // 장바구니 담은거 알람
                   alert("장바구니에 담겼습니다.");
@@ -138,6 +146,70 @@ function DetailContent(props) {
             </div>
           </div>
         </div>
+
+        {/* 장바구니에 담은거 확인용 모달창 */}
+        {showModal && addedItem && (
+          <div className="size-modal">
+            <h2 className="option-title">옵션 변경</h2>
+            <div className="name-price">
+              <img
+                src={`https://kku-git.github.io/nff_product/${addedItem.category}/${addedItem.category}${addedItem.id}.jpg`}
+                alt={addedItem.title}
+              />
+              <p>{addedItem.title}</p>
+            </div>
+
+            {addedItem.category === "fingers" && (
+              <div className="select-wrapper">
+                <select
+                  className="size-select"
+                  value={selectedSize}
+                  onChange={(e) => setSelectedSize(e.target.value)}
+                >
+                  <option value="" disabled>
+                    사이즈를 선택해주세요
+                  </option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                </select>
+                <img
+                  src="/dropdown-icon.svg"
+                  alt="드롭다운 화살표"
+                  className="select-icon"
+                />
+              </div>
+            )}
+
+            <div className="modal-buttons">
+              <button
+                onClick={() => {
+                  if (selectedSize === "") {
+                    alert("사이즈를 선택해주세요.");
+                    return;
+                  }
+
+                  dispatch(
+                    updateItemSize({
+                      id: addedItem.id,
+                      size: selectedSize,
+                    })
+                  );
+                  setOpenItemId(null);
+                }}
+              >
+                변경
+              </button>
+              <button
+                className="close-button"
+                onClick={() => setOpenItemId(null)}
+              >
+                닫기
+              </button>
+            </div>
+          </div>
+        )}
+
         <div className="product-detail">
           <img
             src={`https://kku-git.github.io/nff_product/${category}/${category}${id}_detail.jpg`}
