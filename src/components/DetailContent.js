@@ -157,29 +157,10 @@ function DetailContent(props) {
                 alt={addedItem.title}
               />
               <p>{addedItem.title}</p>
+              <p>{addedItem.price}</p>
+              <p>수량 : {addedItem.count}</p>
+              <p>사이즈 : {addedItem.size || "OneSize"}</p>
             </div>
-
-            {addedItem.category === "fingers" && (
-              <div className="select-wrapper">
-                <select
-                  className="size-select"
-                  value={selectedSize}
-                  onChange={(e) => setSelectedSize(e.target.value)}
-                >
-                  <option value="" disabled>
-                    사이즈를 선택해주세요
-                  </option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                </select>
-                <img
-                  src="/dropdown-icon.svg"
-                  alt="드롭다운 화살표"
-                  className="select-icon"
-                />
-              </div>
-            )}
 
             <div className="modal-buttons">
               <button
@@ -198,13 +179,13 @@ function DetailContent(props) {
                   setOpenItemId(null);
                 }}
               >
-                변경
+                장바구니 이동
               </button>
               <button
                 className="close-button"
                 onClick={() => setOpenItemId(null)}
               >
-                닫기
+                쇼핑계속하기
               </button>
             </div>
           </div>
