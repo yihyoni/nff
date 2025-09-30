@@ -149,8 +149,8 @@ function DetailContent(props) {
 
         {/* 장바구니에 담은거 확인용 모달창 */}
         {showModal && addedItem && (
-          <div className="size-modal">
-            <h2 className="option-title">옵션 변경</h2>
+          <div className="modal cart-modal">
+            <h2 className="option-title">장바구니 담기</h2>
             <div className="name-price">
               <img
                 src={`https://kku-git.github.io/nff_product/${addedItem.category}/${addedItem.category}${addedItem.id}.jpg`}
@@ -162,28 +162,17 @@ function DetailContent(props) {
               <p>사이즈 : {addedItem.size || "OneSize"}</p>
             </div>
 
-            <div className="modal-buttons">
+            <div className="modal-buttons cart-buttons">
               <button
                 onClick={() => {
-                  if (selectedSize === "") {
-                    alert("사이즈를 선택해주세요.");
-                    return;
-                  }
-
-                  dispatch(
-                    updateItemSize({
-                      id: addedItem.id,
-                      size: selectedSize,
-                    })
-                  );
-                  setOpenItemId(null);
+                  navigate("/cart");
                 }}
               >
                 장바구니 이동
               </button>
               <button
                 className="close-button"
-                onClick={() => setOpenItemId(null)}
+                onClick={() => setShowModal(false)}
               >
                 쇼핑계속하기
               </button>

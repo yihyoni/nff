@@ -139,7 +139,7 @@ function CartContent(props) {
 
                       {/* 사이즈 버튼 클릭 시 보여줄 모달창 */}
                       {openItemId === item.id && (
-                        <div className="size-modal">
+                        <div className="modal size-modal">
                           <h2 className="option-title">옵션 변경</h2>
                           <div className="name-price">
                             <img

@@ -370,7 +370,7 @@ button {
   font-size: 1vw;
 }
 
-.size-modal {
+.modal {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -383,38 +383,51 @@ button {
   transform: translate(-50%, -50%);
   border: 1px solid black;
   width: 300px;
-  height: 305px;
+  gap: 16px;
+  text-align: center;
 }
-.size-modal .option-title {
+.modal .option-title {
   font-size: 14px;
   font-weight: normal;
   color: #da7c98;
   background-color: #222222;
   width: 100%;
   padding: 10px 0;
+  text-align: center;
 }
-.size-modal .name-price img {
+.modal .name-price {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.modal .name-price img {
   width: 100px;
   height: 100px;
+  margin: auto;
   border: 1px solid black;
 }
-.size-modal .name-price p {
+.modal .name-price p {
   font-weight: bold;
+  font-size: 1vw;
 }
-.size-modal .modal-buttons {
+.modal .modal-buttons {
   display: flex;
   gap: 10px;
   margin-bottom: 16px;
 }
-.size-modal .modal-buttons button {
+.modal .modal-buttons button {
   border: 1px solid #222222;
   background-color: #ffffff;
   padding: 10px;
   color: #222222;
 }
-.size-modal .modal-buttons button:hover {
+.modal .modal-buttons button:hover {
   background-color: #222222;
   color: #da7c98;
+}
+.modal .cart-buttons {
+  display: flex;
+  flex-direction: column;
 }
 
 .trash-cart button {

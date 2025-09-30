@@ -401,7 +401,7 @@ button {
 }
 
 // 사이즈 옵션 모달창
-.size-modal {
+.modal {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -414,8 +414,8 @@ button {
   transform: translate(-50%, -50%);
   border: 1px solid black;
   width: 300px;
-  height: 305px;
-  // gap: 16px;
+  gap: 16px;
+  text-align: center;
 
   .option-title {
     font-size: 14px; //14px
@@ -424,16 +424,23 @@ button {
     background-color: $black;
     width: 100%;
     padding: 10px 0;
+    text-align: center;
   }
 
   .name-price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
     img {
       width: 100px;
       height: 100px;
+      margin: auto;
       border: 1px solid black;
     }
     p {
       font-weight: bold;
+      font-size: 1vw;
     }
   }
 
@@ -452,7 +459,18 @@ button {
       }
     }
   }
+
+  .cart-buttons {
+    display: flex;
+    flex-direction: column;
+  }
 }
+// .size-modal {
+//   height: 305px;
+// }
+// .cart-modal {
+//   height: 447px;
+// }
 
 // 위시리스트
 .trash-cart button {
