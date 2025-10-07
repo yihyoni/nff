@@ -20,8 +20,8 @@ function App() {
   let [isShopHovered, setIsShopHovered] = useState(false);
   let [isBoardHovered, setIsBoardHovered] = useState(false);
 
-  // 검색창 버튼
-  let [Search, setSearch] = useState(false);
+  // // 검색창 버튼
+  // let [Search, setSearch] = useState(false);
 
   // 페이지 상태 정의
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
@@ -57,8 +57,8 @@ function App() {
         path="/"
         element={
           <MainPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
@@ -76,8 +76,8 @@ function App() {
         path="/shop/fingers"
         element={
           <FingerPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
@@ -98,8 +98,8 @@ function App() {
         path="/shop/hair"
         element={
           <HairPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
@@ -120,8 +120,8 @@ function App() {
         path="/shop/necklace"
         element={
           <NeckPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
@@ -142,8 +142,8 @@ function App() {
         path="/cart"
         element={
           <CartPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
@@ -161,8 +161,8 @@ function App() {
         element={
           LoggedIn ? (
             <WishListPage
-              Search={Search}
-              setSearch={setSearch}
+              // Search={Search}
+              // setSearch={setSearch}
               isShopHovered={isShopHovered}
               setIsShopHovered={setIsShopHovered}
               isBoardHovered={isBoardHovered}
@@ -182,8 +182,8 @@ function App() {
         path="/detail/:category/:id"
         element={
           <DetailPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
@@ -201,8 +201,8 @@ function App() {
         path="/login"
         element={
           <LoginPage
-            Search={Search}
-            setSearch={setSearch}
+            // Search={Search}
+            // setSearch={setSearch}
             isShopHovered={isShopHovered}
             setIsShopHovered={setIsShopHovered}
             isBoardHovered={isBoardHovered}
