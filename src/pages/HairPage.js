@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
@@ -8,12 +9,13 @@ import HairItems from "../components/HairItems";
 import Logo from "../components/Logo";
 
 function HairPage(props) {
+  const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
+
   return (
     <div className="wrapper">
       {/* 검색창 */}
-      {props.Search === true ? (
-        <SearchOverlay setSearch={props.setSearch} />
-      ) : null}
+      {isSearchOpen && <SearchOverlay />}
+
       {/* 헤더 */}
       <Header />
       {/* 컨테이너 시작 */}
@@ -21,7 +23,7 @@ function HairPage(props) {
         {/* 왼쪽 aside */}
         <LeftSidebar
           className={props.leftSidebarToggle ? "open" : ""}
-          setSearch={props.setSearch}
+          // setSearch={props.setSearch}
           setIsShopHovered={props.setIsShopHovered}
           isShopHovered={props.isShopHovered}
           setIsBoardHovered={props.setIsBoardHovered}

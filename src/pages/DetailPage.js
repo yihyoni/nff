@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
@@ -5,10 +6,12 @@ import SearchOverlay from "../components/SearchOverlay";
 import DetailContent from "../components/DetailContent";
 
 function DetailPage(props) {
+  const isSearchOpen = useSelector((state) => state.search.isSearchOpen); // 🔥 검색창 전역 상태 불러오기
+
   return (
     <div className="wrapper">
       {/* 검색창 */}
-      {props.Search === true && <SearchOverlay setSearch={props.setSearch} />}
+      {isSearchOpen && <SearchOverlay />}
 
       {/* 헤더 */}
       <Header />
@@ -18,7 +21,7 @@ function DetailPage(props) {
         {/* 왼쪽 aside */}
         <LeftSidebar
           className={props.leftSidebarToggle ? "open" : ""}
-          setSearch={props.setSearch}
+          // setSearch={props.setSearch}
           setIsShopHovered={props.setIsShopHovered}
           isShopHovered={props.isShopHovered}
           setIsBoardHovered={props.setIsBoardHovered}

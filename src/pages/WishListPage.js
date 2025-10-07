@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function WishListPage(props) {
+  const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
+
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
   const navigate = useNavigate();
 
@@ -21,7 +23,7 @@ function WishListPage(props) {
   return (
     <div className="wrapper">
       {/* 검색창 */}
-      {props.Search === true && <SearchOverlay setSearch={props.setSearch} />}
+      {isSearchOpen && <SearchOverlay />}
 
       {/* 헤더 */}
       <Header />
@@ -31,7 +33,7 @@ function WishListPage(props) {
         {/* 왼쪽 aside */}
         <LeftSidebar
           className={props.leftSidebarToggle ? "open" : ""}
-          setSearch={props.setSearch}
+          // setSearch={props.setSearch}
           setIsShopHovered={props.setIsShopHovered}
           isShopHovered={props.isShopHovered}
           setIsBoardHovered={props.setIsBoardHovered}

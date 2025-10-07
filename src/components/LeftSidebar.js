@@ -1,6 +1,10 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSearchOpen } from "../store/searchSlice";
 
 function LeftSidebar(props) {
+  const dispatch = useDispatch();
+
   return (
     <aside
       className={`sidebar sidebar-left ${props.className}`}
@@ -8,7 +12,7 @@ function LeftSidebar(props) {
       onMouseLeave={() => props.setLeftSidebarToggle(false)}
     >
       <ul className="category">
-        <li onClick={() => props.setSearch(true)}>
+        <li onClick={() => dispatch(setSearchOpen(true))}>
           <Link>SEARCH</Link>
         </li>
         <li
