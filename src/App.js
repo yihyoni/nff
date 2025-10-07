@@ -12,16 +12,13 @@ import LoginPage from "./pages/LoginPage";
 import { useSelector } from "react-redux";
 
 function App() {
-  // 사이드바 열고 닫기
-  const [leftSidebarToggle, setLeftSidebarToggle] = useState(false);
-  const [rightSidebarToggle, setRightSidebarToggle] = useState(false);
+  // // 사이드바 열고 닫기
+  // const [leftSidebarToggle, setLeftSidebarToggle] = useState(false);
+  // const [rightSidebarToggle, setRightSidebarToggle] = useState(false);
 
-  // 카테고리 버튼
-  let [isShopHovered, setIsShopHovered] = useState(false);
-  let [isBoardHovered, setIsBoardHovered] = useState(false);
-
-  // // 검색창 버튼
-  // let [Search, setSearch] = useState(false);
+  // // 카테고리 버튼
+  // let [isShopHovered, setIsShopHovered] = useState(false);
+  // let [isBoardHovered, setIsBoardHovered] = useState(false);
 
   // 페이지 상태 정의
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
@@ -57,17 +54,15 @@ function App() {
         path="/"
         element={
           <MainPage
-            // Search={Search}
-            // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -78,19 +73,19 @@ function App() {
           <FingerPage
             // Search={Search}
             // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             updateTotalPages={updateTotalPages}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -100,19 +95,19 @@ function App() {
           <HairPage
             // Search={Search}
             // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             updateTotalPages={updateTotalPages}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -122,19 +117,19 @@ function App() {
           <NeckPage
             // Search={Search}
             // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             updateTotalPages={updateTotalPages}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -144,15 +139,15 @@ function App() {
           <CartPage
             // Search={Search}
             // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -163,15 +158,15 @@ function App() {
             <WishListPage
               // Search={Search}
               // setSearch={setSearch}
-              isShopHovered={isShopHovered}
-              setIsShopHovered={setIsShopHovered}
-              isBoardHovered={isBoardHovered}
-              setIsBoardHovered={setIsBoardHovered}
+              // isShopHovered={isShopHovered}
+              // setIsShopHovered={setIsShopHovered}
+              // isBoardHovered={isBoardHovered}
+              // setIsBoardHovered={setIsBoardHovered}
               handleCategoryChange={handleCategoryChange}
-              leftSidebarToggle={leftSidebarToggle}
-              setLeftSidebarToggle={setLeftSidebarToggle}
-              rightSidebarToggle={rightSidebarToggle}
-              setRightSidebarToggle={setRightSidebarToggle}
+              // leftSidebarToggle={leftSidebarToggle}
+              // setLeftSidebarToggle={setLeftSidebarToggle}
+              // rightSidebarToggle={rightSidebarToggle}
+              // setRightSidebarToggle={setRightSidebarToggle}
             />
           ) : (
             <Navigate to="/login" replace />
@@ -184,15 +179,15 @@ function App() {
           <DetailPage
             // Search={Search}
             // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -203,15 +198,15 @@ function App() {
           <LoginPage
             // Search={Search}
             // setSearch={setSearch}
-            isShopHovered={isShopHovered}
-            setIsShopHovered={setIsShopHovered}
-            isBoardHovered={isBoardHovered}
-            setIsBoardHovered={setIsBoardHovered}
+            // isShopHovered={isShopHovered}
+            // setIsShopHovered={setIsShopHovered}
+            // isBoardHovered={isBoardHovered}
+            // setIsBoardHovered={setIsBoardHovered}
             handleCategoryChange={handleCategoryChange}
-            leftSidebarToggle={leftSidebarToggle}
-            setLeftSidebarToggle={setLeftSidebarToggle}
-            rightSidebarToggle={rightSidebarToggle}
-            setRightSidebarToggle={setRightSidebarToggle}
+            // leftSidebarToggle={leftSidebarToggle}
+            // setLeftSidebarToggle={setLeftSidebarToggle}
+            // rightSidebarToggle={rightSidebarToggle}
+            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />

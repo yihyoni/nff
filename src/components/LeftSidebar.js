@@ -1,27 +1,37 @@
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { setSearchOpen } from "../store/searchSlice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  setLeftSidebarToggle,
+  setIsShopHovered,
+  setIsBoardHovered,
+} from "../store/sidebarSlice";
 
 function LeftSidebar(props) {
   const dispatch = useDispatch();
+  const leftSidebarToggle = useSelector(
+    (state) => state.sidebar.leftSidebarToggle
+  );
+  const isShopHovered = useSelector((state) => state.sidebar.isShopHovered);
+  const isBoardHovered = useSelector((state) => state.sidebar.isBoardHovered);
 
   return (
     <aside
-      className={`sidebar sidebar-left ${props.className}`}
-      onMouseEnter={() => props.setLeftSidebarToggle(true)}
-      onMouseLeave={() => props.setLeftSidebarToggle(false)}
+      className={`sidebar sidebar-left ${leftSidebarToggle ? "open" : ""}`}
+      onMouseEnter={() => dispatch(setLeftSidebarToggle(true))}
+      onMouseLeave={() => dispatch(setLeftSidebarToggle(false))}
     >
       <ul className="category">
         <li onClick={() => dispatch(setSearchOpen(true))}>
           <Link>SEARCH</Link>
         </li>
         <li
-          onMouseEnter={() => props.setIsShopHovered(true)}
-          onMouseLeave={() => props.setIsShopHovered(false)}
+          onMouseEnter={() => dispatch(setIsShopHovered(true))}
+          onMouseLeave={() => dispatch(setIsShopHovered(false))}
           className="dropdown"
         >
           <Link to="/">SHOP</Link>
-          {props.isShopHovered && (
+          {isShopHovered && (
             <ul className="dropdown-content">
               <li onClick={() => props.handleCategoryChange("hair")}>
                 <Link to="/shop/hair">for hair</Link>
@@ -36,12 +46,12 @@ function LeftSidebar(props) {
           )}
         </li>
         <li
-          onMouseOver={() => props.setIsBoardHovered(true)}
-          onMouseOut={() => props.setIsBoardHovered(false)}
+          onMouseOver={() => dispatch(setIsBoardHovered(true))}
+          onMouseOut={() => dispatch(setIsBoardHovered(false))}
           className="dropdown"
         >
           <Link to="/">BOARD</Link>
-          {props.isBoardHovered && (
+          {isBoardHovered && (
             <ul className="dropdown-content">
               <li>
                 <Link to="/notice">notice</Link>
