@@ -22,23 +22,11 @@ function NeckPage(props) {
       {/* 컨테이너 시작 */}
       <div className="container">
         {/* 왼쪽 aside */}
-        <LeftSidebar
-          className={props.leftSidebarToggle ? "open" : ""}
-          // setSearch={props.setSearch}
-          setIsShopHovered={props.setIsShopHovered}
-          isShopHovered={props.isShopHovered}
-          setIsBoardHovered={props.setIsBoardHovered}
-          isBoardHovered={props.isBoardHovered}
-          handleCategoryChange={props.handleCategoryChange}
-          setLeftSidebarToggle={props.setLeftSidebarToggle}
-        />
+        <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
         {/* 중앙 메인 콘텐츠 */}
         <main>
-          <Logo
-            setLeftSidebarToggle={props.setLeftSidebarToggle}
-            setRightSidebarToggle={props.setRightSidebarToggle}
-          />
+          <Logo />
           {/* items */}
           <NeckItems
             currentPage={props.currentPage}
@@ -56,10 +44,7 @@ function NeckPage(props) {
         </main>
 
         {/* 우측 aside */}
-        <RightSidebar
-          className={props.rightSidebarToggle ? "open" : ""}
-          setRightSidebarToggle={props.setRightSidebarToggle}
-        />
+        <RightSidebar />
       </div>
     </div>
   );

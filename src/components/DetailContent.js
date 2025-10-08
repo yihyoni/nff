@@ -8,7 +8,7 @@ import { addWishlistItem, removeWishlistItem } from "../store/wishlistSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function DetailContent(props) {
+function DetailContent() {
   const dispatch = useDispatch();
   const { category, id } = useParams();
   const [product, setProduct] = useState(null);
@@ -68,10 +68,7 @@ function DetailContent(props) {
 
   return (
     <main>
-      <Logo
-        setLeftSidebarToggle={props.setLeftSidebarToggle}
-        setRightSidebarToggle={props.setRightSidebarToggle}
-      />
+      <Logo />
       <div className="detail-container">
         <div className="product-summary">
           <div className="product-image">

@@ -27,10 +27,7 @@ function LoginContent(props) {
 
   return (
     <main>
-      <Logo
-        setLeftSidebarToggle={props.setLeftSidebarToggle}
-        setRightSidebarToggle={props.setRightSidebarToggle}
-      />
+      <Logo />
       {LoggedIn ? (
         <div className="welcome-container">
           <h3 className="welcome-message">{info.name}님 환영합니다.</h3>

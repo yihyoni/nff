@@ -1,13 +1,10 @@
 import Footer from "./Footer";
 import Logo from "./Logo";
 
-function MainContent(props) {
+function MainContent() {
   return (
     <main>
-      <Logo
-        setLeftSidebarToggle={props.setLeftSidebarToggle}
-        setRightSidebarToggle={props.setRightSidebarToggle}
-      />
+      <Logo />
       <div className="image-container">
         <img
           src="https://kku-git.github.io/nff_product/nff_bg.svg"

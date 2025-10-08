@@ -4,16 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeWishlistItem, clearWishlist } from "../store/wishlistSlice";
 import { addCartItem } from "../store/cartSlice";
 
-function WishListContent(props) {
+function WishListContent() {
   const wishListItems = useSelector((state) => state.wishlist);
   const dispatch = useDispatch();
 
   return (
     <main>
-      <Logo
-        setLeftSidebarToggle={props.setLeftSidebarToggle}
-        setRightSidebarToggle={props.setRightSidebarToggle}
-      />
+      <Logo />
       {/*위시리스트*/}
       <div className="wish-container">
         <div className="wish-header">

@@ -16,26 +16,11 @@ function LoginPage(props) {
       <Header />
 
       <div className="container">
-        <LeftSidebar
-          className={props.leftSidebarToggle ? "open" : ""}
-          // setSearch={props.setSearch}
-          setIsShopHovered={props.setIsShopHovered}
-          isShopHovered={props.isShopHovered}
-          setIsBoardHovered={props.setIsBoardHovered}
-          isBoardHovered={props.isBoardHovered}
-          handleCategoryChange={props.handleCategoryChange}
-          setLeftSidebarToggle={props.setLeftSidebarToggle}
-        />
+        <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
-        <LoginContent
-          setLeftSidebarToggle={props.setLeftSidebarToggle}
-          setRightSidebarToggle={props.setRightSidebarToggle}
-        />
+        <LoginContent />
 
-        <RightSidebar
-          className={props.rightSidebarToggle ? "open" : ""}
-          setRightSidebarToggle={props.setRightSidebarToggle}
-        />
+        <RightSidebar />
       </div>
     </div>
   );

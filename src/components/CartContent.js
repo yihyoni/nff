@@ -10,7 +10,7 @@ import {
 } from "../store/cartSlice";
 import { useState } from "react";
 
-function CartContent(props) {
+function CartContent() {
   const cartItems = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   // 배송비
@@ -37,10 +37,7 @@ function CartContent(props) {
 
   return (
     <main>
-      <Logo
-        setLeftSidebarToggle={props.setLeftSidebarToggle}
-        setRightSidebarToggle={props.setRightSidebarToggle}
-      />
+      <Logo />
 
       {/* 장바구니 */}
       <div className="cart-container">
