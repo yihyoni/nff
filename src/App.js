@@ -12,14 +12,6 @@ import LoginPage from "./pages/LoginPage";
 import { useSelector } from "react-redux";
 
 function App() {
-  // // 사이드바 열고 닫기
-  // const [leftSidebarToggle, setLeftSidebarToggle] = useState(false);
-  // const [rightSidebarToggle, setRightSidebarToggle] = useState(false);
-
-  // // 카테고리 버튼
-  // let [isShopHovered, setIsShopHovered] = useState(false);
-  // let [isBoardHovered, setIsBoardHovered] = useState(false);
-
   // 페이지 상태 정의
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
   const [totalPages, setTotalPages] = useState(1);
