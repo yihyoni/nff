@@ -1,15 +1,20 @@
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { setRightSidebarToggle } from "../store/sidebarSlice";
 
-function RightSidebar(props) {
+function RightSidebar() {
+  const dispatch = useDispatch();
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
+  const rightSidebarToggle = useSelector(
+    (state) => state.sidebar.rightSidebarToggle
+  );
   const navigate = useNavigate();
 
   return (
     <aside
-      className={`sidebar sidebar-right ${props.className}`}
-      onMouseEnter={() => props.setRightSidebarToggle(true)}
-      onMouseLeave={() => props.setRightSidebarToggle(false)}
+      className={`sidebar sidebar-right  ${rightSidebarToggle ? "open" : ""}`}
+      onMouseEnter={() => dispatch(setRightSidebarToggle(true))}
+      onMouseLeave={() => dispatch(setRightSidebarToggle(false))}
     >
       <ul className="category">
         <li>

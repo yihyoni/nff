@@ -52,40 +52,18 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={
-          <MainPage
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
-            handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
-          />
-        }
+        element={<MainPage handleCategoryChange={handleCategoryChange} />}
       />
       <Route path="/shop" element={<Navigate to="/" replace />} />
       <Route
         path="/shop/fingers"
         element={
           <FingerPage
-            // Search={Search}
-            // setSearch={setSearch}
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             updateTotalPages={updateTotalPages}
             handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -93,21 +71,11 @@ function App() {
         path="/shop/hair"
         element={
           <HairPage
-            // Search={Search}
-            // setSearch={setSearch}
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             updateTotalPages={updateTotalPages}
             handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
@@ -115,59 +83,23 @@ function App() {
         path="/shop/necklace"
         element={
           <NeckPage
-            // Search={Search}
-            // setSearch={setSearch}
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
             currentPage={currentPage}
             totalPages={totalPages}
             onPageChange={handlePageChange}
             updateTotalPages={updateTotalPages}
             handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
           />
         }
       />
       <Route
         path="/cart"
-        element={
-          <CartPage
-            // Search={Search}
-            // setSearch={setSearch}
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
-            handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
-          />
-        }
+        element={<CartPage handleCategoryChange={handleCategoryChange} />}
       />
       <Route
         path="/wishlist"
         element={
           LoggedIn ? (
-            <WishListPage
-              // Search={Search}
-              // setSearch={setSearch}
-              // isShopHovered={isShopHovered}
-              // setIsShopHovered={setIsShopHovered}
-              // isBoardHovered={isBoardHovered}
-              // setIsBoardHovered={setIsBoardHovered}
-              handleCategoryChange={handleCategoryChange}
-              // leftSidebarToggle={leftSidebarToggle}
-              // setLeftSidebarToggle={setLeftSidebarToggle}
-              // rightSidebarToggle={rightSidebarToggle}
-              // setRightSidebarToggle={setRightSidebarToggle}
-            />
+            <WishListPage handleCategoryChange={handleCategoryChange} />
           ) : (
             <Navigate to="/login" replace />
           )
@@ -175,40 +107,12 @@ function App() {
       />
       <Route
         path="/detail/:category/:id"
-        element={
-          <DetailPage
-            // Search={Search}
-            // setSearch={setSearch}
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
-            handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
-          />
-        }
+        element={<DetailPage handleCategoryChange={handleCategoryChange} />}
       />
 
       <Route
         path="/login"
-        element={
-          <LoginPage
-            // Search={Search}
-            // setSearch={setSearch}
-            // isShopHovered={isShopHovered}
-            // setIsShopHovered={setIsShopHovered}
-            // isBoardHovered={isBoardHovered}
-            // setIsBoardHovered={setIsBoardHovered}
-            handleCategoryChange={handleCategoryChange}
-            // leftSidebarToggle={leftSidebarToggle}
-            // setLeftSidebarToggle={setLeftSidebarToggle}
-            // rightSidebarToggle={rightSidebarToggle}
-            // setRightSidebarToggle={setRightSidebarToggle}
-          />
-        }
+        element={<LoginPage handleCategoryChange={handleCategoryChange} />}
       />
 
       <Route path="*" element={<Navigate to="/" replace />} />
