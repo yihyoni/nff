@@ -114,7 +114,6 @@ header .ticker-wrap .ticker li {
 }
 .sidebar li a {
   position: relative;
-  display: inline-block;
 }
 .sidebar li a::after {
   content: "";
