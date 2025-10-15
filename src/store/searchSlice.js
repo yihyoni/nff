@@ -1,13 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let initialState = {
-  isSearchOpen: false, // 검색창 원래 닫혀있는 상태로 유지
-  searchTerm: "",
-};
-
 let search = createSlice({
   name: "search",
-  initialState,
+  initialState: {
+    isSearchOpen: false, // 검색창 원래 닫혀있는 상태로 유지
+    searchTerm: "",
+  },
   reducers: {
     // 검색창 열고 닫기
     setSearchOpen: (state, action) => {
