@@ -466,11 +466,6 @@ button {
   padding: 0.694vw 1.39vw;
 }
 
-.wish-container {
-  width: 100%;
-  margin-bottom: 7.06rem;
-}
-
 .wish-item {
   display: flex;
   justify-content: space-between;
@@ -653,6 +648,41 @@ select:focus {
   color: #cf6e91;
   padding: 15px;
   background-color: #fff0f0;
+}
+
+.search-container {
+  width: 100%;
+  margin-bottom: 7.06rem;
+}
+.search-container .search-title {
+  width: 100%;
+  padding: 0.694vw 0;
+  font-size: 1.15vw;
+  background-color: #fff0f0;
+  color: #da7c98;
+  text-align: center;
+  border-bottom: 1px solid #da7c98;
+  border-top: 1px solid #da7c98;
+}
+.search-container .search-items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #da7c98;
+}
+.search-container .search-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 25px;
+  gap: 16px;
+  text-align: center;
+}
+.search-container .search-item img {
+  width: 240px;
+  height: 240px;
+  border: 1px solid #da7c98;
 }
 
 /* 미디어 쿼리 */

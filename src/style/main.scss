@@ -457,14 +457,7 @@ button {
     flex-direction: column;
   }
 }
-// .size-modal {
-//   height: 305px;
-// }
-// .cart-modal {
-//   height: 447px;
-// }
 
-// 위시리스트
 .trash-cart button {
   // text-align: center;
   padding: 0.694vw;
@@ -476,6 +469,7 @@ button {
   }
 }
 
+// 위시리스트
 .wish-container {
   width: 100%;
   margin-bottom: 7.06rem;
@@ -502,10 +496,6 @@ button {
     justify-content: flex-end; // 오른쪽 정렬
     padding: 0.694vw 1.39vw;
   }
-}
-.wish-container {
-  width: 100%;
-  margin-bottom: 7.06rem;
 }
 
 .wish-item {
@@ -690,6 +680,42 @@ select:focus {
   color: $text_color;
   padding: 15px;
   background-color: $sub_color;
+}
+
+// 검색페이지
+.search-container {
+  width: 100%;
+  margin-bottom: 7.06rem;
+  .search-title {
+    width: 100%;
+    padding: 0.694vw 0;
+    font-size: 1.15vw;
+    background-color: $sub_color;
+    color: $main_color;
+    text-align: center;
+    border-bottom: 1px solid $main_color;
+    border-top: 1px solid $main_color;
+  }
+  .search-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $main_color;
+  }
+  .search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 25px;
+    gap: 16px;
+    text-align: center;
+  }
+  .search-item img {
+    width: 240px;
+    height: 240px;
+    border: 1px solid $main_color;
+  }
 }
 
 /* 미디어 쿼리 */

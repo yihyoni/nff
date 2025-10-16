@@ -9,6 +9,7 @@ import CartPage from "./pages/CartPage";
 import WishListPage from "./pages/WishListPage";
 import DetailPage from "./pages/DetailPage";
 import LoginPage from "./pages/LoginPage";
+import SearchPage from "./pages/SearchPage";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -106,6 +107,11 @@ function App() {
         path="/login"
         element={<LoginPage handleCategoryChange={handleCategoryChange} />}
       />
+
+      <Route
+        path="search"
+        element={<SearchPage handleCategoryChange={handleCategoryChange} />}
+      ></Route>
 
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
