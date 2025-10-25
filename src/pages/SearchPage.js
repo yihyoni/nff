@@ -16,6 +16,7 @@ function SearchPage(props) {
 
       <div className="container">
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
+
         <SearchItems />
 
         <RightSidebar />
