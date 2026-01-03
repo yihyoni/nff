@@ -9,9 +9,11 @@ import {
 
 function LeftSidebar({ handleCategoryChange }) {
   const dispatch = useDispatch();
+  // 왼쪽 사이드바 열기
   const leftSidebarToggle = useSelector(
     (state) => state.sidebar.leftSidebarToggle
   );
+  // 왼쪽 카테고리 열기 (2개로 구분)
   const isShopHovered = useSelector((state) => state.sidebar.isShopHovered);
   const isBoardHovered = useSelector((state) => state.sidebar.isBoardHovered);
 

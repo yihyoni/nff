@@ -4,11 +4,15 @@ import { setRightSidebarToggle } from "../store/sidebarSlice";
 
 function RightSidebar() {
   const dispatch = useDispatch();
-  const LoggedIn = useSelector((state) => state.user.LoggedIn);
+  const navigate = useNavigate();
+
+  // 왼쪽 사이드바 열기
   const rightSidebarToggle = useSelector(
     (state) => state.sidebar.rightSidebarToggle
   );
-  const navigate = useNavigate();
+
+  // 로그인 
+  const LoggedIn = useSelector((state) => state.user.LoggedIn);
 
   return (
     <aside

@@ -6,7 +6,8 @@ import SearchOverlay from "../components/SearchOverlay";
 import DetailContent from "../components/DetailContent";
 
 function DetailPage(props) {
-  const isSearchOpen = useSelector((state) => state.search.isSearchOpen); // 🔥 검색창 전역 상태 불러오기
+  // Redux에서 검색창 열림 여부 가져오기
+  const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
   return (
     <div className="wrapper">

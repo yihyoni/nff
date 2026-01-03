@@ -6,12 +6,12 @@ import SearchOverlay from "../components/SearchOverlay";
 import LoginContent from "../components/LoginContent";
 
 function LoginPage(props) {
-  // ✅ Redux에서 검색창 열림 여부 가져오기
+  //  Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
   return (
     <div className="wrapper">
-      {/* ✅ Redux 상태로 검색창 띄우기 */}
+      {/* 검색창 띄우기 */}
       {isSearchOpen && <SearchOverlay />}
       <Header />
 

@@ -6,9 +6,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     <div className="pages">
       {/* 이전 페이지 버튼 */}
       <span
-        onClick={(e) => {
-          // e.preventDefault(); // 링크 클릭 시 페이지 새로고침 방지
-          // 근데 a 태그가 아니라 span 태그 썼는데 굳이 써야할 까 의문.
+        onClick={() => {
           if (currentPage > 1) {
             onPageChange(currentPage - 1);
             // 현재 페이지에서 하나 이전 페이지로 이동. 현재 page 값 업데이트
@@ -41,7 +39,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
 
       {/* 다음 페이지 버튼 */}
       <span
-        onClick={(e) => {
+        onClick={() => {
           if (currentPage < totalPages) {
             onPageChange(currentPage + 1);
           } // 현재 페이지가 전체 페이지보다 작으면 현재 페이지 기준으로 다음페이지로 이동

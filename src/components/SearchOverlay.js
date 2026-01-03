@@ -5,7 +5,8 @@ import { useNavigate } from "react-router-dom";
 
 function SearchOverlay() {
   const dispatch = useDispatch();
-  const [inputValue, setInputValue] = useState(""); // 검색어 요소 값 담기
+  const [inputValue, setInputValue] = useState(""); 
+  // 검색어 요소 값 담기
   const navigate = useNavigate();
 
   const handleKeyPress = (e) => {
