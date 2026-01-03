@@ -7,7 +7,7 @@ import {
   setIsBoardHovered,
 } from "../store/sidebarSlice";
 
-function LeftSidebar(props) {
+function LeftSidebar({ handleCategoryChange }) {
   const dispatch = useDispatch();
   const leftSidebarToggle = useSelector(
     (state) => state.sidebar.leftSidebarToggle
@@ -33,13 +33,13 @@ function LeftSidebar(props) {
           <Link to="/">SHOP</Link>
           {isShopHovered && (
             <ul className="dropdown-content">
-              <li onClick={() => props.handleCategoryChange("hair")}>
+              <li onClick={() => handleCategoryChange("hair")}>
                 <Link to="/shop/hair">for hair</Link>
               </li>
-              <li onClick={() => props.handleCategoryChange("neck")}>
+              <li onClick={() => handleCategoryChange("neck")}>
                 <Link to="/shop/necklace">for neck</Link>
               </li>
-              <li onClick={() => props.handleCategoryChange("fingers")}>
+              <li onClick={() => handleCategoryChange("fingers")}>
                 <Link to="/shop/fingers">for fingers</Link>
               </li>
             </ul>

@@ -65,7 +65,7 @@ function CartContent() {
                 <div className="cart-item" key={item.id}>
                   <div className="item-image">
                     <img
-                      src={`https://kku-git.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
+                      src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
                       alt={item.title}
                     />
                   </div>
@@ -140,7 +140,7 @@ function CartContent() {
                           <h2 className="option-title">옵션 변경</h2>
                           <div className="name-price">
                             <img
-                              src={`https://kku-git.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
+                              src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
                               alt={item.title}
                             />
                             <p>{item.title}</p>

@@ -8,7 +8,7 @@ function NeckItems({ currentPage, itemsPerPage, updateTotalPages }) {
 
   useEffect(() => {
     axios
-      .get("https://kku-git.github.io/nff_product/necklace.json")
+      .get("https://yihyoni.github.io/nff_product/necklace.json")
       .then((response) => {
         const sorted = [...response.data].sort((a, b) => a.id - b.id); // 오름차순 정렬
         setOriginalData(sorted); // 원본 저장
@@ -44,7 +44,7 @@ function NeckItems({ currentPage, itemsPerPage, updateTotalPages }) {
               </div>
 
               <img
-                src={`https://kku-git.github.io/nff_product/necklace/necklace${a.id}.jpg`}
+                src={`https://yihyoni.github.io/nff_product/necklace/necklace${a.id}.jpg`}
                 alt={a.title}
               />
             </Link>

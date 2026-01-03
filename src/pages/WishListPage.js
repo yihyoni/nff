@@ -13,10 +13,12 @@ function WishListPage(props) {
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
   const navigate = useNavigate();
 
+  // 위시리스트 페이지에 로그인 안 한 사용자가 들어오려고 하면 막기
+  // 컴포넌트가 렌더링되면 → useEffect()가 실행됨
   useEffect(() => {
     if (!LoggedIn) {
       alert("로그인 후 이용해주세요!");
-      navigate("/login");
+      navigate("/login"); // 로그인 페이지로 이동
     }
   }, [LoggedIn]);
 

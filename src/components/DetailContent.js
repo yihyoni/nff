@@ -44,11 +44,12 @@ function DetailContent() {
 
   if (!product) return <p>로딩중...</p>;
 
+  //product가 존재할 때만 실행되어야 해서 로딩중 아래에 작성
   const isWished = wishListItems.some(
     (item) => item.id === product.id && item.category === category
   );
 
-  // 하트 위시리시트 토글 함수
+  // 하트 위시리시트 토글 함수 (위시리스트 추가/제거 토글)
   const toggleWishlistItem = () => {
     if (!LoggedIn) {
       alert("로그인 후 이용해주세요.");
@@ -56,11 +57,11 @@ function DetailContent() {
       return;
     }
     if (isWished) {
-      console.log("삭제 실행");
+      console.log("위시리스트에서 삭제");
       dispatch(removeWishlistItem({ id: product.id, category }));
       alert("위시리스트에서 삭제되었습니다.");
     } else {
-      console.log("추가 실행");
+      console.log("위시리스트에서 추가");
       dispatch(addWishlistItem({ ...product, category }));
       alert("위시리스트에 추가되었습니다.");
     }

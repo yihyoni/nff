@@ -5,7 +5,7 @@ import {
   setRightSidebarToggle,
 } from "../store/sidebarSlice";
 
-function Logo(props) {
+function Logo() {
   const dispatch = useDispatch();
 
   return (
@@ -19,8 +19,8 @@ function Logo(props) {
       />
       <Link to="/">
         <img
-          src="https://kku-git.github.io/nff_product/logo.svg"
-          alt="로고"
+          src="https://yihyoni.github.io/nff_product/logo.svg"
+          alt="메인 로고"
           className="main-logo"
         />
       </Link>

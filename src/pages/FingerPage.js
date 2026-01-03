@@ -31,9 +31,10 @@ function FingerPage(props) {
           {/* items */}
           <FingerItems
             currentPage={props.currentPage}
-            itemsPerPage={9}
+            itemsPerPage={9} // 9개씩 아이템을 보여주기
             updateTotalPages={props.updateTotalPages}
           />
+
           {/* pages */}
           <Pagination
             currentPage={props.currentPage}

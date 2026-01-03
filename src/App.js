@@ -15,9 +15,10 @@ import { useSelector } from "react-redux";
 function App() {
   // 페이지 상태 정의
   const [currentPage, setCurrentPage] = useState(1); // 현재 페이지 상태
-  const [totalPages, setTotalPages] = useState(1);
+  const [totalPages, setTotalPages] = useState(1); // 총 페이지 수
 
-  // 페이지 변경 핸들러
+  // 페이지 변경 함수
+  // 확장성과 재사용성 때문에 상태변경함수 안쓰고 함수로 따로 생성
   function handlePageChange(page) {
     setCurrentPage(page); // 페이지를 변경할 때 상태를 업데이트
   }
@@ -43,11 +44,16 @@ function App() {
 
   return (
     <Routes>
+      {/* 메인페이지 */}
       <Route
         path="/"
         element={<MainPage handleCategoryChange={handleCategoryChange} />}
       />
+
+      {/* shop 주소 접속시 메인페이지로 이동 */}
       <Route path="/shop" element={<Navigate to="/" replace />} />
+
+      {/*  각 상품 카테고리 경로*/}
       <Route
         path="/shop/fingers"
         element={
@@ -84,10 +90,14 @@ function App() {
           />
         }
       />
+
+      {/* 장바구니 경로 */}
       <Route
         path="/cart"
         element={<CartPage handleCategoryChange={handleCategoryChange} />}
       />
+
+      {/* 위시리스트 경로 */}
       <Route
         path="/wishlist"
         element={
@@ -98,21 +108,26 @@ function App() {
           )
         }
       />
+
+      {/* 상세페이지 경로 */}
       <Route
         path="/detail/:category/:id"
         element={<DetailPage handleCategoryChange={handleCategoryChange} />}
       />
 
+      {/* 로그인 페이지 경로 */}
       <Route
         path="/login"
         element={<LoginPage handleCategoryChange={handleCategoryChange} />}
       />
 
+      {/* 검색창 결과 경로 */}
       <Route
         path="search"
         element={<SearchPage handleCategoryChange={handleCategoryChange} />}
       ></Route>
 
+      {/* 그 외 주소 경로 */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

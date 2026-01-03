@@ -4,6 +4,7 @@ import cart from "./store/cartSlice";
 import wishlist from "./store/wishlistSlice";
 import search from "./store/searchSlice";
 import sidebar from "./store/sidebarSlice";
+import products from "./store/productSlice";
 
 export default configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export default configureStore({
     user: user,
     search: search,
     sidebar: sidebar,
+    products: products,
   },
 });

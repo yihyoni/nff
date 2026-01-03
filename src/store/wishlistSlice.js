@@ -31,7 +31,7 @@ let wishlist = createSlice({
     },
 
     // 위시리스트에 있는 상품목록들 장바구니(cart)로 이동
-    //컴포넌트에서 dispatch 두 번으로 처리
+    // 컴포넌트에서 dispatch 두 번으로 처리
   },
 });
 

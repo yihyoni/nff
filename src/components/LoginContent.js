@@ -28,7 +28,7 @@ function LoginContent(props) {
   return (
     <main>
       <Logo />
-      {LoggedIn ? (
+      {LoggedIn ? ( //로그인 됐을 때
         <div className="welcome-container">
           <h3 className="welcome-message">{info.name}님 환영합니다.</h3>
           <button className="logout-button" onClick={handleLogout}>
@@ -36,6 +36,7 @@ function LoginContent(props) {
           </button>
         </div>
       ) : (
+        //로그인 안 됐을 때
         <div className="login-container">
           <h3 className="login-title">회원정보</h3>
           <input
