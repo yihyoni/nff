@@ -19,7 +19,7 @@ function DetailContent(props) {
 
   useEffect(() => {
     axios
-      .get(`https://kku-git.github.io/nff_product/${category}.json`)
+      .get(`https://yihyoni.github.io/nff_product/${category}.json`)
       .then((res) => {
         const item = res.data.find((item) => String(item.id) === id);
         setProduct(item);
@@ -57,7 +57,7 @@ function DetailContent(props) {
         <div className="product-summary">
           <div className="product-image">
             <img
-              src={`https://kku-git.github.io/nff_product/${category}/${category}${product.id}.jpg`}
+              src={`https://yihyoni.github.io/nff_product/${category}/${category}${product.id}.jpg`}
               alt={product.title}
             />
           </div>
@@ -108,7 +108,7 @@ function DetailContent(props) {
         </div>
         <div className="product-detail">
           <img
-            src={`https://kku-git.github.io/nff_product/${category}/${category}${id}_detail.jpg`}
+            src={`https://yihyoni.github.io/nff_product/${category}/${category}${id}_detail.jpg`}
             alt={`상세 이미지 ${id}`}
           />
         </div>

@@ -10,7 +10,7 @@ function MainContent(props) {
       />
       <div className="image-container">
         <img
-          src="https://kku-git.github.io/nff_product/nff_bg.svg"
+          src="https://yihyoni.github.io/nff_product/nff_bg.svg"
           alt="배경"
           className="bg-image"
         />

@@ -7,7 +7,7 @@ function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
 
   useEffect(() => {
     axios
-      .get("https://kku-git.github.io/nff_product/hair.json")
+      .get("https://yihyoni.github.io/nff_product/hair.json")
       .then((response) => {
         const sorted = [...response.data].sort((a, b) => a.id - b.id); // 오름차순 정렬
         setOriginalData(sorted); // 원본 저장
@@ -44,7 +44,7 @@ function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
               </div>
 
               <img
-                src={`https://kku-git.github.io/nff_product/hair/hair${a.id}.jpg`}
+                src={`https://yihyoni.github.io/nff_product/hair/hair${a.id}.jpg`}
                 alt={a.title}
               />
             </Link>

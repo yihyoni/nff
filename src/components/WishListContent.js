@@ -39,7 +39,7 @@ function WishListContent(props) {
                 <div className="wish-item">
                   <div className="item-image">
                     <img
-                      src={`https://kku-git.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
+                      src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
                       alt={item.title}
                     />
                   </div>

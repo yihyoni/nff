@@ -12,7 +12,7 @@ function Logo(props) {
       />
       <Link to="/">
         <img
-          src="https://kku-git.github.io/nff_product/logo.svg"
+          src="https://yihyoni.github.io/nff_product/logo.svg"
           alt="로고"
           className="main-logo"
         />
