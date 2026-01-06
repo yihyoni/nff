@@ -22,6 +22,8 @@ function LeftSidebar({ handleCategoryChange }) {
       className={`sidebar sidebar-left ${leftSidebarToggle ? "open" : ""}`}
       onMouseEnter={() => dispatch(setLeftSidebarToggle(true))}
       onMouseLeave={() => dispatch(setLeftSidebarToggle(false))}
+      // 마우스가 사이드바를 벗어나야 닫히게 토글
+      // 해당 사이드바 위에 마우스를 올리면 true니까 계속 열린 상태
     >
       <ul className="category">
         <li onClick={() => dispatch(setSearchOpen(true))}>

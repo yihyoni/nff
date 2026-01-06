@@ -11,7 +11,7 @@ function RightSidebar() {
     (state) => state.sidebar.rightSidebarToggle
   );
 
-  // 로그인 
+  // 로그인 여부 갖고오기
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
 
   return (
@@ -35,9 +35,9 @@ function RightSidebar() {
             onClick={() => {
               if (!LoggedIn) {
                 alert("로그인 후 이용해주세요");
-                navigate("/login");
+                navigate("/login"); // 비로그인 상태 - 로그인페이지로 이동
               } else {
-                navigate("/wishlist");
+                navigate("/wishlist"); // 로그인 상태 - 위시리스트페이지 접속가능
               }
             }}
           >

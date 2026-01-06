@@ -4,21 +4,23 @@ import { Link } from "react-router-dom";
 function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
   // 상품 목록 담을 그릇 - 초기값으로 빈 배열 설정
   // 상태를 빈 배열로 시작하고, 나중에 데이터를 받아와서 배열에 데이터를 저장
-  const [originalData, setOriginalData] = useState([]); // 상품 목록 원본 (정렬시 사용)
-  const [visibleData, setVisibleData] = useState([]); // 상품 목록 복제본
+  // 원본과 화면에 보여줄 데이터를 분리해서 상태로 관리
+  const [originalData, setOriginalData] = useState([]); // 상품 원본 보관용
+  const [visibleData, setVisibleData] = useState([]); // 사용자한테 보여줄 상품 데이터
 
   // 상품 데이터(외부데이터) 갖고오기 - 처음 화면에 나타날 때만 실행
   useEffect(() => {
     axios
       .get("https://yihyoni.github.io/nff_product/fingers.json")
       .then((response) => {
-        const sorted = [...response.data].sort((a, b) => a.id - b.id); // 오름차순 정렬
+        const sorted = [...response.data].sort((a, b) => a.id - b.id);
+        // 오름차순 정렬
         setOriginalData(sorted); // 원본 저장
-        setVisibleData(sorted); //복제본에다가도 저장
+        setVisibleData(sorted); // 복제본에다가도 저장
 
         // 총 페이지 수 계산 및 업데이트
         const totalPages = Math.ceil(sorted.length / itemsPerPage);
-        updateTotalPages(totalPages); // 부모 컴포넌트에 페이지 수 업데이트
+        updateTotalPages(totalPages); // 페이지 수 업데이트
       })
       .catch(() => {
         console.log("실패함");
@@ -43,16 +45,18 @@ function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
   return (
     <div className="item-container">
       {/* map 함수 이용해서 데이터 개수만큼 생성. */}
+      {/* 해당 상품의 id로 상품 보여주기 */}
       {currentItems.map((a) => {
         return (
           <div key={a.id} className="item">
+            {/* 상품 이미지 클릭 시 해당 상품 페이지로 이동 */}
             <Link to={`/detail/fingers/${a.id}`}>
               <div className="overlay-wrap">
                 <div className="overlay">
                   <p>{a.title}</p>
                   <p>{a.price}</p>
                 </div>
-              </div>
+              </div>ㅁ
 
               <img
                 src={`https://yihyoni.github.io/nff_product/fingers/fingers${a.id}.jpg`}

@@ -685,7 +685,7 @@ select:focus {
 // 검색페이지
 .search-container {
   width: 100%;
-  margin-bottom: 7.06rem;
+  // margin-bottom: 7.06rem;
   .search-title {
     width: 100%;
     padding: 0.694vw 0;
@@ -736,11 +736,14 @@ select:focus {
     top: 0;
     left: 0;
     transform: translateX(-100%);
+    // 자기 자신 너비의 -100%만큼 왼쪽으로 이동
+    // 처음엔 안 보이게 왼쪽 화면 밖으로 완전히 사라진 상태
     height: 100%;
   }
 
   .sidebar-left.open {
     transform: translateX(0);
+    //원래 위치(화면 안쪽, left: 0)로 되돌아오기
   }
 
   .sidebar-right {

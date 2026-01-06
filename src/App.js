@@ -40,6 +40,8 @@ function App() {
   function handleCategoryChange(category) {
     setCurrentCategory(category);
   }
+
+  // 로그인 상태 여부 갖고옴 - 위시리스트 접속시 로그인 여부 확인 필요
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
 
   return (
@@ -97,7 +99,7 @@ function App() {
         element={<CartPage handleCategoryChange={handleCategoryChange} />}
       />
 
-      {/* 위시리스트 경로 */}
+      {/* 위시리스트 경로 - 로그인이 되어야만 접근할 수 있는 페이지*/}
       <Route
         path="/wishlist"
         element={
@@ -114,6 +116,8 @@ function App() {
         path="/detail/:category/:id"
         element={<DetailPage handleCategoryChange={handleCategoryChange} />}
       />
+      {/* 상세페이지는 공통 컴포넌트 하나로 처리하고, 
+      URL 파라미터로 카테고리명과 상품 id를 함께 넘겨줌 */}
 
       {/* 로그인 페이지 경로 */}
       <Route
