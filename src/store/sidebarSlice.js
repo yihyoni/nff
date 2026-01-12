@@ -3,10 +3,13 @@ import { createSlice } from "@reduxjs/toolkit";
 let sidebar = createSlice({
   name: "sidebar",
   initialState: {
-    leftSidebarToggle: false, //사이드바 열고 닫기 상태
-    rightSidebarToggle: false,
-    isShopHovered: false, //카테고리 열고 닫기 상태
-    isBoardHovered: false,
+    //사이드바 열고 닫기 상태
+    leftSidebarToggle: false, // 왼쪽 사이드바
+    rightSidebarToggle: false, // 오른쪽 사이드바
+
+    //카테고리 열고 닫기 상태
+    isShopHovered: false, // "SHOP" 메뉴
+    isBoardHovered: false, // "BOARD" 메뉴
   },
   reducers: {
     setLeftSidebarToggle: (state, action) => {

@@ -71,6 +71,7 @@ let cart = createSlice({
     },
 
     // 반지 사이즈 상태 업데이트
+    // 이거 근데 카테고리랑도 비교하게끔 추가로 더 수정해줘야 함.
     updateItemSize: (state, action) => {
       const { id, size } = action.payload; // 객체 { id: item.id, size: selectedSize }
       const found = state.find((item) => item.id === id);

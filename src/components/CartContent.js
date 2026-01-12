@@ -20,17 +20,19 @@ function CartContent() {
   // 배송비
   const deliveryFee = 0;
 
-  // 총 금액 계산
+  // 총 금액 계산 (계산을 위해 문자열 -> 숫자 속성으로 바꾸기)
   function parsePrice(str) {
     const noKRW = str.replace("KRW ", "");
     const noComma = noKRW.replace(",", "");
     return Number(noComma);
   }
 
+  // 총 결제 금액
   const totalPrice = cartItems.reduce((sum, item) => {
     return sum + parsePrice(item.price) * item.count;
   }, 0);
 
+  // 총 결제 금액 + 배송비
   const grandTotal = totalPrice + deliveryFee;
 
   // 사이즈 창 토글 - 아이템마다 구분해서 특정 아이템의 모달만 열리도록 구분
@@ -147,8 +149,8 @@ function CartContent() {
                             setOpenItemId(item.id);
                             // 장바구니에 들어있는 아이템 중에서 클릭한 아이템의 id 저장
                             setSelectedSize(item.size);
-                            // 해당 상품의 사이즈 넣어서 아이템의 기존 사이즈로 select 값 초기화
-                            // 이 부분 흐름이 엄청 잘 이해되진 않음.
+                            // 해당 상품의 사이즈 넣어서 select 값 초기화
+                            // 모달을 열 때마다 각 아이템에 저장된 사이즈로 덮어씌워 초기화
                           }}
                         >
                           사이즈: {item.size || "선택안됨"}

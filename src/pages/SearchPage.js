@@ -18,6 +18,7 @@ function SearchPage(props) {
       <div className="container">
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
+        {/* 검색결과 불러오기 */}
         <SearchItems />
 
         <RightSidebar />

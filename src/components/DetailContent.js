@@ -171,11 +171,11 @@ function DetailContent() {
                   // 상품 JSON에는 category 정보가 없기 때문에
                   // 장바구니에 추가할 때 category를 함께 보내서
                   // CartContent에서 이미지 경로나 로직 분기에 활용할 수 있게 만든다
+                  // 사용자가 지금 보고 있는 product에서 필요한 정보를 꺼내서, 장바구니에 넣을 객체
 
                   //  장바구니에 추가 (Redux에 저장)
                   dispatch(addCartItem(itemToAdd)); // 장바구니에 넣기
                   setAddedItem(itemToAdd); // 방금 담은 아이템 기록
-                  // 이게 어떻게 방금 담은 아이템 기록이 될 수 있는 거지?
                   setShowModal(true); // 모달 열기
 
                   // 장바구니 담기 성공 알람

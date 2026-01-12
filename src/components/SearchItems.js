@@ -16,6 +16,7 @@ function SearchItems() {
   useEffect(() => {
     if (allProducts.length > 0) return; // 이미 불러왔으면 무시
 
+    // 모든 카테고리에서 검색하려면 여러 JSON을 불러오기
     const categories = ["hair", "fingers", "necklace"];
     const promises = categories.map((category) =>
       axios
@@ -28,6 +29,7 @@ function SearchItems() {
         )
     );
 
+    // 전체 아이템 배열 합치기
     Promise.all(promises)
       .then((results) => {
         const allItems = results.flat();
