@@ -4,7 +4,7 @@ const products = createSlice({
   name: "products",
   initialState: {
     allProducts: [], // 전체 상품 데이터 담는 배열
-    isLoading: true,
+    isLoading: true, // 로딩중 보여주는 상태
   },
   reducers: {
     setAllProducts: (state, action) => {

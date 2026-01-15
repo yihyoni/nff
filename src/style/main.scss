@@ -21,32 +21,6 @@ $black: #222222;
   height: 100%;
 }
 
-// 검색
-.search-container {
-  .search-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-    z-index: 999;
-  }
-
-  .search {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    z-index: 999;
-    .search-box {
-      width: 40vw;
-      padding: 1.5vw;
-      border: none;
-      font-size: 16px;
-    }
-  }
-}
-
 // 헤더
 header {
   position: fixed; // 뉴스티커 부분
@@ -682,10 +656,35 @@ select:focus {
   background-color: $sub_color;
 }
 
+// 검색
+.search-content {
+  .search-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+  }
+
+  .search {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    z-index: 999;
+    .search-box {
+      width: 40vw;
+      padding: 1.5vw;
+      border: none;
+      font-size: 16px;
+    }
+  }
+}
 // 검색페이지
 .search-container {
   width: 100%;
-  // margin-bottom: 7.06rem;
+  margin-bottom: 7.06rem;
   .search-title {
     width: 100%;
     padding: 0.694vw 0;

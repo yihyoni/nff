@@ -22,7 +22,7 @@ function SearchOverlay() {
   };
 
   return (
-    <div className="search-container">
+    <div className="search-content">
       {/* 검색창 외부 배경 */}
       <div
         className="search-overlay"
