@@ -14,6 +14,8 @@ function SearchItems() {
   const isLoading = useSelector((state) => state.products.isLoading);
   // 검색창에 입력된 검색어
   const searchTerm = useSelector((state) => state.search.searchTerm);
+  // 검색어 갖고와서 소문자화
+  const search = searchTerm?.toLowerCase() || "";
 
   // 상품 불러오기 (최초 진입 시 1번만)
   useEffect(() => {
@@ -53,60 +55,48 @@ function SearchItems() {
   // 데이터 불러오기 했는데 상품이 없는 경우
   if (allProducts.length === 0) return <p>상품 없음</p>;
 
-  // // 필터링
-  // const filteredItems = allProducts.filter((item) =>
-  //   item.name.toLowerCase().includes(searchTerm.toLowerCase())
-  // );
+  // 검색어 필터링
+  const filteredItems = allProducts.filter((item) => {
+    const name = item.title?.toLowerCase() || "";
+    return name.includes(search);
+  });
 
   return (
     <main>
       <Logo />
 
-      {/* 검색아이템 */}
+      {/* 검색어 */}
       <div className="search-container">
         <p className="search-title">SEARCH</p>
 
         <div className="search-items">
-          {/* 장바구니 아이템 1 */}
-          <div className="search-item">
-            <div className="search-image">
-              <img src="/black-ring.jpg" alt="black-ring" />
-            </div>
-            <div className="item-info">
-              <p className="search-name">black-ring</p>
-              <p className="item-price">KRW 48,000</p>
-            </div>
-          </div>
-          {/* 장바구니 아이템 2 */}
-          <div className="search-item">
-            <div className="search-image">
-              <img src="/black-ring.jpg" alt="black-ring" />
-            </div>
-            <div className="item-info">
-              <p className="item-name">black-ring</p>
-              <p className="item-price">KRW 48,000</p>
-            </div>
-          </div>
-          {/* 장바구니 아이템 3 */}
-          <div className="search-item">
-            <div className="search-image">
-              <img src="/black-ring.jpg" alt="black-ring" />
-            </div>
-            <div className="item-info">
-              <p className="item-name">black-ring</p>
-              <p className="item-price">KRW 48,000</p>
-            </div>
-          </div>{" "}
-          {/* 장바구니 아이템 4 */}
-          <div className="search-item">
-            <div className="search-image">
-              <img src="/black-ring.jpg" alt="black-ring" />
-            </div>
-            <div className="item-info">
-              <p className="item-name">black-ring</p>
-              <p className="item-price">KRW 48,000</p>
-            </div>
-          </div>
+          {/* 검색된 아이템 */}
+          {filteredItems.length === 0 ? (
+            <p>검색 결과가 없습니다.</p>
+          ) : (
+            filteredItems.map((item) => {
+              return (
+                <div
+                  className="search-item"
+                  key={`${item.category}-${item.id}`}
+                >
+                  {/* 이미지 클릭 시, 상세페이지로 이동 */}
+                  <Link to={`/detail/${item.category}/${item.id}`}>
+                    <div className="search-image">
+                      <img
+                        src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
+                        alt={item.title}
+                      />
+                    </div>
+                    <div className="item-info">
+                      <p className="item-name">{item.title}</p>
+                      <p className="item-price">{item.price}</p>
+                    </div>
+                  </Link>
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
 
