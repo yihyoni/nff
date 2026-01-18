@@ -28,19 +28,21 @@ function NeckPage(props) {
         {/* 중앙 메인 콘텐츠 */}
         <main>
           <Logo />
+
           {/* items */}
           <NeckItems
             currentPage={props.currentPage}
             itemsPerPage={9}
             updateTotalPages={props.updateTotalPages}
           />
-          {/* pages */}
+
+          {/* 페이지 */}
           <Pagination
             currentPage={props.currentPage}
             totalPages={props.totalPages}
             onPageChange={props.onPageChange}
           />
-          {/* Footer */}
+
           <Footer />
         </main>
 

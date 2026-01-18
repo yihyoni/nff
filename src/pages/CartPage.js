@@ -4,6 +4,8 @@ import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import CartContent from "../components/CartContent";
+import Logo from "../components/Logo";
+import Footer from "../components/Footer";
 
 function CartPage(props) {
   // Redux에서 검색창 열림 여부 가져오기
@@ -22,8 +24,13 @@ function CartPage(props) {
         {/* 왼쪽 aside */}
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
-        {/* 중앙 메인 콘텐츠 */}
-        <CartContent />
+        <main>
+          <Logo />
+          {/* 중앙 메인 콘텐츠 */}
+          <CartContent />
+          {/* Footer */}
+          <Footer />
+        </main>
 
         {/* 우측 aside */}
         <RightSidebar />

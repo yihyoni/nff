@@ -4,6 +4,8 @@ import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import DetailContent from "../components/DetailContent";
+import Logo from "../components/Logo";
+import Footer from "../components/Footer";
 
 function DetailPage(props) {
   // Redux에서 검색창 열림 여부 가져오기
@@ -23,8 +25,14 @@ function DetailPage(props) {
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
         {/* 중앙 메인 콘텐츠 */}
-        <DetailContent />
-
+        <main>
+          {/* 로고 */}
+          <Logo />
+          {/* 중앙 메인 콘텐츠 */}
+          <DetailContent />
+          {/* Footer */}
+          <Footer />
+        </main>
         {/* 우측 aside */}
         <RightSidebar />
       </div>

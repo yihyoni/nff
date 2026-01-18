@@ -4,6 +4,8 @@ import RightSidebar from "../components/RightSidebar";
 import MainContent from "../components/MainContent";
 import Header from "../components/Header";
 import SearchOverlay from "../components/SearchOverlay";
+import Logo from "../components/Logo";
+import Footer from "../components/Footer";
 
 function MainPage(props) {
   // Redux 상태에서 검색창 열림 여부 가져오기
@@ -18,7 +20,11 @@ function MainPage(props) {
 
       <div className="container">
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
-        <MainContent />
+        <main>
+          <Logo />
+          <MainContent />
+          <Footer />
+        </main>
         <RightSidebar />
       </div>
     </div>

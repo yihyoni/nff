@@ -27,18 +27,21 @@ function HairPage(props) {
         {/* 중앙 메인 콘텐츠 */}
         <main>
           <Logo />
+
           {/* items */}
           <HairItems
             currentPage={props.currentPage}
             itemsPerPage={9}
             updateTotalPages={props.updateTotalPages}
           />
+
           {/* pages */}
           <Pagination
             currentPage={props.currentPage}
             totalPages={props.totalPages}
             onPageChange={props.onPageChange}
           />
+
           {/* Footer */}
           <Footer />
         </main>

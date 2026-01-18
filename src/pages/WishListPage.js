@@ -6,6 +6,8 @@ import WishListContent from "../components/WishListContent";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Logo from "../components/Logo";
+import Footer from "../components/Footer";
 
 function WishListPage(props) {
   const navigate = useNavigate();
@@ -40,10 +42,12 @@ function WishListPage(props) {
         {/* 왼쪽 aside */}
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
-        {/* 중앙 메인 콘텐츠 */}
-        {/* 로그인 상태일 경우만 컴포넌트 보여줌 */}
-        {LoggedIn && <WishListContent />}
-
+        <main>
+          <Logo />
+          {/* 로그인 상태일 경우만 컴포넌트 보여줌 */}
+          {LoggedIn && <WishListContent />}
+          <Footer />
+        </main>
         {/* 우측 aside */}
         <RightSidebar />
       </div>

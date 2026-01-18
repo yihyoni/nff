@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import Footer from "./Footer";
-import Logo from "./Logo";
 import { setAllProducts } from "../store/productSlice";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -33,8 +31,8 @@ function SearchItems() {
             // 축약형 (category: category)
             // 받아온 상품 데이터(res.data)의 각각 요소(item)에다가
             // category 값을 추가해서, 새롭게 가공된 배열을 만드는 것
-          }))
-        )
+          })),
+        ),
     );
 
     // 전체 아이템 배열 합치기
@@ -58,49 +56,38 @@ function SearchItems() {
   });
 
   return (
-    <main>
-      <Logo />
+    <div className="search-container">
+      <p className="search-title">SEARCH</p>
 
-      {/* 검색어 */}
-      <div className="search-container">
-        <p className="search-title">SEARCH</p>
-
-        <div className="search-items">
-          {/* 검색된 아이템 */}
-          {isLoading ? (
-            <p>로딩중...</p>
-          ) : filteredItems.length === 0 ? (
-            <p>검색 결과가 없습니다.</p>
-          ) : (
-            filteredItems.map((item) => {
-              return (
-                <div
-                  className="search-item"
-                  key={`${item.category}-${item.id}`}
-                >
-                  {/* 이미지 클릭 시, 상세페이지로 이동 */}
-                  <Link to={`/detail/${item.category}/${item.id}`}>
-                    <div className="search-image">
-                      <img
-                        src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
-                        alt={item.title}
-                      />
-                    </div>
-                    <div className="item-info">
-                      <p className="item-name">{item.title}</p>
-                      <p className="item-price">{item.price}</p>
-                    </div>
-                  </Link>
-                </div>
-              );
-            })
-          )}
-        </div>
+      <div className="search-items">
+        {/* 검색된 아이템 */}
+        {isLoading ? (
+          <p>로딩중...</p>
+        ) : filteredItems.length === 0 ? (
+          <p>검색 결과가 없습니다.</p>
+        ) : (
+          filteredItems.map((item) => {
+            return (
+              <div className="search-item" key={`${item.category}-${item.id}`}>
+                {/* 이미지 클릭 시, 상세페이지로 이동 */}
+                <Link to={`/detail/${item.category}/${item.id}`}>
+                  <div className="search-image">
+                    <img
+                      src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
+                      alt={item.title}
+                    />
+                  </div>
+                  <div className="item-info">
+                    <p className="item-name">{item.title}</p>
+                    <p className="item-price">{item.price}</p>
+                  </div>
+                </Link>
+              </div>
+            );
+          })
+        )}
       </div>
-
-      {/* Footer */}
-      <Footer />
-    </main>
+    </div>
   );
 }
 

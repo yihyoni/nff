@@ -4,6 +4,8 @@ import RightSidebar from "../components/RightSidebar";
 import Header from "../components/Header";
 import SearchOverlay from "../components/SearchOverlay";
 import LoginContent from "../components/LoginContent";
+import Logo from "../components/Logo";
+import Footer from "../components/Footer";
 
 function LoginPage(props) {
   //  Redux에서 검색창 열림 여부 가져오기
@@ -18,7 +20,11 @@ function LoginPage(props) {
       <div className="container">
         <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
 
-        <LoginContent />
+        <main>
+          <Logo />
+          <LoginContent />
+          <Footer />
+        </main>
 
         <RightSidebar />
       </div>

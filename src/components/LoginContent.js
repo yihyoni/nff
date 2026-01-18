@@ -1,5 +1,3 @@
-import Footer from "./Footer";
-import Logo from "./Logo";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout } from "../store/userSlice";
 import { useState } from "react";
@@ -31,8 +29,7 @@ function LoginContent() {
   };
 
   return (
-    <main>
-      <Logo />
+    <>
       {/* 로그인 됐을 때 실행 */}
       {LoggedIn ? (
         <div className="welcome-container">
@@ -64,9 +61,7 @@ function LoginContent() {
           </button>
         </div>
       )}
-
-      <Footer />
-    </main>
+    </>
   );
 }
 

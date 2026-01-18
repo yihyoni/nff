@@ -116,7 +116,6 @@ header .ticker-wrap .ticker li {
 }
 
 .container {
-  flex: 1;
   display: flex;
   min-height: 100vh;
 }
@@ -136,7 +135,6 @@ header .ticker-wrap .ticker li {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  justify-content: center;
 }
 .container main .bg-image {
   width: 52.5vw;

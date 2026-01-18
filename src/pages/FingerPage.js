@@ -4,9 +4,9 @@ import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import Pagination from "../components/Pagination";
-import Footer from "../components/Footer";
 import FingerItems from "../components/FingerItems";
 import Logo from "../components/Logo";
+import Footer from "../components/Footer";
 
 function FingerPage(props) {
   // Redux에서 검색창 열림 여부 가져오기
@@ -42,6 +42,7 @@ function FingerPage(props) {
             totalPages={props.totalPages}
             onPageChange={props.onPageChange}
           />
+          
           {/* Footer */}
           <Footer />
         </main>
