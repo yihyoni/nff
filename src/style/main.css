@@ -678,6 +678,7 @@ select:focus {
   text-align: center;
 }
 .search-container .search-item img {
+  margin: auto;
   width: 240px;
   height: 240px;
   border: 1px solid #da7c98;

@@ -167,9 +167,7 @@ header {
     position: relative;
     border: 1px solid transparent;
     // 들썩거림 방지
-    transition:
-      transform 0.3s ease,
-      border-color 0.3s ease,
+    transition: transform 0.3s ease, border-color 0.3s ease,
       box-shadow 0.3s ease;
 
     .overlay-wrap {
@@ -349,9 +347,7 @@ header {
 button {
   all: unset;
   cursor: pointer;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .remove-button:hover,
@@ -714,6 +710,7 @@ select:focus {
     text-align: center;
   }
   .search-item img {
+    margin: auto;
     width: 240px;
     height: 240px;
     border: 1px solid $main_color;
