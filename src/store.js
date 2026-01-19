@@ -5,14 +5,16 @@ import wishlist from "./store/wishlistSlice";
 import search from "./store/searchSlice";
 import sidebar from "./store/sidebarSlice";
 import products from "./store/productSlice";
+import page from "./store/pageSlice";
 
 export default configureStore({
   reducer: {
-    cart: cart,
-    wishlist: wishlist,
-    user: user,
-    search: search,
-    sidebar: sidebar,
-    products: products,
+    cart,
+    wishlist,
+    user,
+    search,
+    sidebar,
+    products,
+    page,
   },
 });
