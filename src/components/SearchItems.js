@@ -46,6 +46,9 @@ function SearchItems() {
       });
   }, []);
 
+  // 로딩중
+  if (isLoading) return <p>로딩중...</p>;
+
   // 데이터 불러오기 했는데 상품이 없는 경우
   if (allProducts.length === 0) return <p>상품 없음</p>;
 
@@ -61,9 +64,7 @@ function SearchItems() {
 
       <div className="search-items">
         {/* 검색된 아이템 */}
-        {isLoading ? (
-          <p>로딩중...</p>
-        ) : filteredItems.length === 0 ? (
+        {filteredItems.length === 0 ? (
           <p>검색 결과가 없습니다.</p>
         ) : (
           filteredItems.map((item) => {
