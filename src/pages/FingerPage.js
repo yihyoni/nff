@@ -8,7 +8,7 @@ import FingerItems from "../components/FingerItems";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 
-function FingerPage(props) {
+function FingerPage() {
   // Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
@@ -23,26 +23,18 @@ function FingerPage(props) {
       {/* 컨테이너 시작 */}
       <div className="container">
         {/* 왼쪽 aside */}
-        <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
+        <LeftSidebar />
 
         {/* 중앙 메인 콘텐츠 */}
         <main>
           <Logo />
 
           {/* items */}
-          <FingerItems
-            currentPage={props.currentPage}
-            itemsPerPage={9} // 9개씩 아이템을 보여주기
-            updateTotalPages={props.updateTotalPages}
-          />
+          <FingerItems />
 
           {/* pages */}
-          <Pagination
-            currentPage={props.currentPage}
-            totalPages={props.totalPages}
-            onPageChange={props.onPageChange}
-          />
-          
+          <Pagination />
+
           {/* Footer */}
           <Footer />
         </main>

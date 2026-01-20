@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
+function FingerItems({ currentPage, itemsPerPage, updateTotalPages }) {
   // 상품 목록 담을 그릇 - 초기값으로 빈 배열 설정
   // 상태를 빈 배열로 시작하고, 나중에 데이터를 받아와서 배열에 데이터를 저장
   // 원본과 화면에 보여줄 데이터를 분리해서 상태로 관리
@@ -56,8 +56,8 @@ function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
                   <p>{a.title}</p>
                   <p>{a.price}</p>
                 </div>
-              </div>ㅁ
-
+              </div>
+              ㅁ
               <img
                 src={`https://yihyoni.github.io/nff_product/fingers/fingers${a.id}.jpg`}
                 alt={a.title}
@@ -70,4 +70,4 @@ function HairItems({ currentPage, itemsPerPage, updateTotalPages }) {
   );
 }
 
-export default HairItems;
+export default FingerItems;

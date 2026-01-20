@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 
-function WishListPage(props) {
+function WishListPage() {
   const navigate = useNavigate();
 
   // Redux에서 검색창 열림 여부 가져오기
@@ -25,9 +25,7 @@ function WishListPage(props) {
       alert("로그인 후 이용해주세요!");
       navigate("/login"); // 로그인 안 된 상태 - 로그인 페이지로 이동
     }
-  }, [LoggedIn]); // 로그인 상태 변화 감지
-  // 약간 의문인게, 들어오자마자 검사해서 바로 막아야 하는데, useEffect 를 써야 페이지에 진입하자마자 자동으로 실행되는건가? 그렇다면 왜?
-  // 이건 페이지에 진입하자마자 자동으로 실행된다는데 왜지?
+  }, [LoggedIn]); // 렌더 직후 로그인 상태를 검사해 접근을 제어
 
   return (
     <div className="wrapper">
@@ -40,7 +38,7 @@ function WishListPage(props) {
       {/* 컨테이너 시작 */}
       <div className="container">
         {/* 왼쪽 aside */}
-        <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
+        <LeftSidebar />
 
         <main>
           <Logo />

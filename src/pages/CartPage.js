@@ -7,7 +7,7 @@ import CartContent from "../components/CartContent";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 
-function CartPage(props) {
+function CartPage() {
   // Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
@@ -22,7 +22,7 @@ function CartPage(props) {
       {/* 컨테이너 시작 */}
       <div className="container">
         {/* 왼쪽 aside */}
-        <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
+        <LeftSidebar />
 
         <main>
           <Logo />

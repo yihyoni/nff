@@ -7,7 +7,7 @@ import SearchOverlay from "../components/SearchOverlay";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 
-function SearchPage(props) {
+function SearchPage() {
   // Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
@@ -19,7 +19,7 @@ function SearchPage(props) {
 
       <div className="container">
         {/* 왼쪽 aside */}
-        <LeftSidebar handleCategoryChange={props.handleCategoryChange} />
+        <LeftSidebar />
 
         <main>
           <Logo />
