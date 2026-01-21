@@ -1,14 +1,16 @@
 import { Link } from "react-router-dom";
 import { setSearchOpen } from "../store/searchSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import {
   setLeftSidebarToggle,
   setIsShopHovered,
   setIsBoardHovered,
 } from "../store/sidebarSlice";
+import { setCurrentCategory } from "../store/pageSlice";
 
 function LeftSidebar({ handleCategoryChange }) {
   const dispatch = useDispatch();
+
   // 왼쪽 사이드바 열기
   const leftSidebarToggle = useSelector(
     (state) => state.sidebar.leftSidebarToggle
@@ -27,7 +29,7 @@ function LeftSidebar({ handleCategoryChange }) {
     >
       <ul className="category">
         <li onClick={() => dispatch(setSearchOpen(true))}>
-          <Link>SEARCH</Link>
+          <Link to="#">SEARCH</Link>
         </li>
         <li
           onMouseEnter={() => dispatch(setIsShopHovered(true))}
@@ -37,13 +39,13 @@ function LeftSidebar({ handleCategoryChange }) {
           <Link to="/">SHOP</Link>
           {isShopHovered && (
             <ul className="dropdown-content">
-              <li onClick={() => handleCategoryChange("hair")}>
+              <li onClick={() => dispatch(setCurrentCategory("hair"))}>
                 <Link to="/shop/hair">for hair</Link>
               </li>
-              <li onClick={() => handleCategoryChange("neck")}>
+              <li onClick={() => dispatch(setCurrentCategory("neck"))}>
                 <Link to="/shop/necklace">for neck</Link>
               </li>
-              <li onClick={() => handleCategoryChange("fingers")}>
+              <li onClick={() => dispatch(setCurrentCategory("fingers"))}>
                 <Link to="/shop/fingers">for fingers</Link>
               </li>
             </ul>

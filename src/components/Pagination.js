@@ -1,14 +1,27 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { useSelector, useDispatch } from "react-redux";
+import { setCurrentPage } from "../store/pageSlice";
 
-function Pagination({ currentPage, totalPages, onPageChange }) {
+function Pagination() {
+  const dispatch = useDispatch();
+  // 현재 페이지 상태
+  const currentPage = useSelector((state) => state.page.currentPage);
+  // 총 페이지 상태
+  const totalPages = useSelector((state) => state.page.totalPages);
+
+  // 현재 페이지 바꾸기
+  function changePage(page) {
+    dispatch(setCurrentPage(page));
+  }
+
   return (
     <div className="pages">
       {/* 이전 페이지 버튼 */}
       <span
         onClick={() => {
           if (currentPage > 1) {
-            onPageChange(currentPage - 1);
+            changePage(currentPage - 1);
             // 현재 페이지에서 하나 이전 페이지로 이동. 현재 page 값 업데이트
           } // currentPage(현재 페이지) > 1인 경우에만 실행
         }}
@@ -23,7 +36,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
         {Array.from({ length: totalPages }, (_, i) => (
           <li
             key={i}
-            onClick={() => onPageChange(i + 1)} //App.js에서 handlePageChange 함수로 연결
+            onClick={() => changePage(i + 1)} //App.js에서 handlePageChange 함수로 연결
             // 페이지 번호 클릭 시 실행
             style={{
               cursor: "pointer",
@@ -41,7 +54,7 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
       <span
         onClick={() => {
           if (currentPage < totalPages) {
-            onPageChange(currentPage + 1);
+            changePage(currentPage + 1);
           } // 현재 페이지가 전체 페이지보다 작으면 현재 페이지 기준으로 다음페이지로 이동
         }}
         style={{ cursor: "pointer" }}

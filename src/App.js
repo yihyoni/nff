@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import "./style/main.scss";
 import { Routes, Route, Navigate } from "react-router-dom";
 import MainPage from "./pages/MainPage";
@@ -21,35 +20,34 @@ function App() {
       {/* 메인페이지 */}
       <Route path="/" element={<MainPage />} />
 
+      {/* 로그인 페이지 */}
+      <Route path="/login" element={<LoginPage />} />
+
+      {/* 검색창 페이지 */}
+      <Route path="/search" element={<SearchPage />}></Route>
+
       {/* shop 주소 접속시 메인페이지로 이동 */}
       <Route path="/shop" element={<Navigate to="/" replace />} />
-
-      {/*  각 상품 카테고리 경로*/}
+      {/* 상품 카테고리 페이지*/}
       <Route path="/shop/fingers" element={<FingerPage />} />
       <Route path="/shop/hair" element={<HairPage />} />
       <Route path="/shop/necklace" element={<NeckPage />} />
 
-      {/* 장바구니 경로 */}
+      {/* 장바구니 페이지 */}
       <Route path="/cart" element={<CartPage />} />
 
-      {/* 위시리스트 경로 - 로그인이 되어야만 접근할 수 있는 페이지*/}
+      {/* 위시리스트 페이지  - 로그인이 되어야만 접근 가능 */}
       <Route
         path="/wishlist"
         element={LoggedIn ? <WishListPage /> : <Navigate to="/login" replace />}
       />
 
-      {/* 상세페이지 경로 */}
+      {/* 상세페이지 */}
       <Route path="/detail/:category/:id" element={<DetailPage />} />
       {/* 상세페이지는 공통 컴포넌트 하나로 처리하고, 
       URL 파라미터로 카테고리명과 상품 id를 함께 넘겨줌 */}
 
-      {/* 로그인 페이지 경로 */}
-      <Route path="/login" element={<LoginPage />} />
-
-      {/* 검색창 결과 경로 */}
-      <Route path="search" element={<SearchPage />}></Route>
-
-      {/* 그 외 주소 경로 */}
+      {/* 잘못된 주소 → 메인페이지로 이동 */}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
