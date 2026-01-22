@@ -20,7 +20,7 @@ function NeckItems() {
   const [visibleData, setVisibleData] = useState([]);
 
   // 상품 데이터(외부데이터) 갖고오기 - 처음 화면에 나타날 때만 실행
-  useEffect(() => {
+  useEffect((error) => {
     axios
       .get("https://yihyoni.github.io/nff_product/necklace.json")
       .then((response) => {
@@ -33,8 +33,8 @@ function NeckItems() {
         const totalPages = Math.ceil(sorted.length / itemsCount);
         dispatch(setTotalPages(totalPages)); // 페이지 수 업데이트
       })
-      .catch(() => {
-        console.log("실패함");
+      .catch((error) => {
+        console.error("데이터 로드 실패:", error);
       });
   }, []);
 

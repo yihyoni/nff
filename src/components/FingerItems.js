@@ -33,8 +33,8 @@ function FingerItems() {
         const totalPages = Math.ceil(sorted.length / itemsCount);
         dispatch(setTotalPages(totalPages)); // 페이지 수 업데이트
       })
-      .catch(() => {
-        console.log("실패함");
+      .catch((error) => {
+        console.error("데이터 로드 실패:", error);
       });
   }, []);
 
