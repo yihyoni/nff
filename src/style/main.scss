@@ -11,7 +11,7 @@
 $main_color: #da7c98;
 $sub_color: #fff0f0;
 $text_color: #cf6e91;
-$white: #fafafa;
+$white: #ffffff;
 $black: #222222;
 
 // wrapper
@@ -19,32 +19,6 @@ $black: #222222;
   display: flex;
   flex-direction: column;
   height: 100%;
-}
-
-// 검색
-.search-container {
-  .search-overlay {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0.7);
-    z-index: 999;
-  }
-
-  .search {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border: 1px solid black;
-    z-index: 999;
-    .search-box {
-      width: 40vw;
-      padding: 1.5vw;
-      border: none;
-      font-size: 16px;
-    }
-  }
 }
 
 // 헤더
@@ -93,22 +67,18 @@ header {
 // 사이드 바
 .sidebar {
   background-color: $sub_color;
-  // overflow: hidden;
   text-align: center;
   font-size: 1rem;
-
   width: 16.25rem; // 260px;
   padding: 7.8rem 0;
-  // display: flex;
-  // justify-content: center;
   z-index: 998;
   transition: transform 0.5s ease-in-out;
 
   li {
     margin-bottom: 40px;
     a {
+      // display: inline-block;
       position: relative;
-      display: inline-block;
       &::after {
         content: "";
         position: absolute;
@@ -137,7 +107,6 @@ header {
 
 // 컨테이너
 .container {
-  flex: 1;
   display: flex;
   min-height: 100vh; // 리액트 추가
 
@@ -158,7 +127,7 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    justify-content: center; // 수평 가운데 정렬
+    // justify-content: center; // 수평 가운데 정렬
 
     .bg-image {
       width: 52.5vw;
@@ -179,12 +148,8 @@ header {
 
   //  밑에 푸터
   footer {
-    // margin: auto;
-    // padding: 1.2vw;
-    // width: 21.3vw;
     color: $text_color;
     font-size: 10px;
-    // padding: 0.5rem;
     text-align: center;
     text-transform: uppercase;
   }
@@ -202,7 +167,9 @@ header {
     position: relative;
     border: 1px solid transparent;
     // 들썩거림 방지
-    transition: transform 0.3s ease, border-color 0.3s ease,
+    transition:
+      transform 0.3s ease,
+      border-color 0.3s ease,
       box-shadow 0.3s ease;
 
     .overlay-wrap {
@@ -227,7 +194,7 @@ header {
 
     img {
       object-fit: cover;
-      width: 100%; // 이거 해야 창 확대 할 때 안 어긋남.
+      width: 100%;
       height: 100%;
     }
     &:hover {
@@ -307,30 +274,44 @@ header {
 
 .item-image img {
   width: 10.42vw;
-  border: 1px solid #ca7991;
+  border: 1px solid $main_color;
 }
-.item-info p {
-  font-size: 1vw;
-}
+
 .item-info {
   display: flex;
   flex-direction: column;
   gap: 20px;
-}
-.name-price {
-  flex-direction: column;
-  display: flex;
-  gap: 10px;
-}
-.item-count {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1vw;
-  gap: 20px;
-  button img {
-    width: 1.25vw;
-    height: 1.25vw;
+
+  p {
+    font-size: 1vw;
+  }
+
+  .name-price {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .item-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1vw;
+    gap: 20px;
+    button img {
+      width: 1.25vw;
+      height: 1.25vw;
+    }
+  }
+
+  .size-button {
+    color: $black;
+
+    &:hover {
+      background-color: $main_color;
+      color: $white;
+    }
   }
 }
 
@@ -368,7 +349,9 @@ header {
 button {
   all: unset;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .remove-button:hover,
@@ -386,7 +369,72 @@ button {
   font-size: 1vw;
 }
 
-// 위시리스트
+// 사이즈 옵션 모달창
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  z-index: 1000;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  width: 300px;
+  gap: 16px;
+  text-align: center;
+
+  .option-title {
+    font-size: 14px; //14px
+    font-weight: normal;
+    color: $main_color;
+    background-color: $black;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .name-price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    img {
+      width: 100px;
+      height: 100px;
+      margin: auto;
+      border: 1px solid black;
+    }
+    p {
+      font-weight: bold;
+      font-size: 1vw;
+    }
+  }
+
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    button {
+      border: 1px solid $black;
+      background-color: $white;
+      padding: 10px;
+      color: $black;
+      &:hover {
+        background-color: $black;
+        color: $main_color;
+      }
+    }
+  }
+
+  .cart-buttons {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .trash-cart button {
   // text-align: center;
   padding: 0.694vw;
@@ -398,6 +446,7 @@ button {
   }
 }
 
+// 위시리스트
 .wish-container {
   width: 100%;
   margin-bottom: 7.06rem;
@@ -424,10 +473,6 @@ button {
     justify-content: flex-end; // 오른쪽 정렬
     padding: 0.694vw 1.39vw;
   }
-}
-.wish-container {
-  width: 100%;
-  margin-bottom: 7.06rem;
 }
 
 .wish-item {
@@ -583,6 +628,99 @@ select:focus {
   outline: 2px solid $main_color;
 }
 
+// 로그인 페이지
+.login-container,
+.welcome-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 7.06rem;
+}
+.login-title,
+.welcome-message {
+  font-size: 16px;
+  font-weight: normal;
+  color: $text_color;
+}
+.login-input {
+  width: 150px;
+  height: 24px;
+  padding: 0 6px;
+  font-size: 14px;
+  border: 1px solid $text_color;
+}
+.login-button,
+.logout-button {
+  font-size: 16px;
+  border: 1px solid $sub_color;
+  color: $text_color;
+  padding: 15px;
+  background-color: $sub_color;
+}
+
+// 검색
+.search-content {
+  .search-overlay {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: 999;
+  }
+
+  .search {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    z-index: 999;
+    .search-box {
+      width: 40vw;
+      padding: 1.5vw;
+      border: none;
+      font-size: 16px;
+    }
+  }
+}
+// 검색페이지
+.search-container {
+  width: 100%;
+  margin-bottom: 7.06rem;
+  .search-title {
+    width: 100%;
+    padding: 0.694vw 0;
+    font-size: 1.15vw;
+    background-color: $sub_color;
+    color: $main_color;
+    text-align: center;
+    border-bottom: 1px solid $main_color;
+    border-top: 1px solid $main_color;
+  }
+  .search-items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid $main_color;
+  }
+  .search-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 25px;
+    gap: 16px;
+    text-align: center;
+  }
+  .search-item img {
+    margin: auto;
+    width: 240px;
+    height: 240px;
+    border: 1px solid $main_color;
+  }
+}
+
 /* 미디어 쿼리 */
 @media (min-width: 769px) {
   .menu-icon {
@@ -601,11 +739,14 @@ select:focus {
     top: 0;
     left: 0;
     transform: translateX(-100%);
+    // 자기 자신 너비의 -100%만큼 왼쪽으로 이동
+    // 처음엔 안 보이게 왼쪽 화면 밖으로 완전히 사라진 상태
     height: 100%;
   }
 
   .sidebar-left.open {
     transform: translateX(0);
+    //원래 위치(화면 안쪽, left: 0)로 되돌아오기
   }
 
   .sidebar-right {

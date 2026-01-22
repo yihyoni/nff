@@ -1,34 +1,37 @@
 import { useSelector } from "react-redux";
 import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
+import SearchItems from "../components/SearchItems";
 import Header from "../components/Header";
 import SearchOverlay from "../components/SearchOverlay";
-import LoginContent from "../components/LoginContent";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 
-function LoginPage() {
-  //  Redux에서 검색창 열림 여부 가져오기
+function SearchPage() {
+  // Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
   return (
     <div className="wrapper">
-      {/* 검색창 띄우기 */}
       {isSearchOpen && <SearchOverlay />}
+
       <Header />
 
       <div className="container">
+        {/* 왼쪽 aside */}
         <LeftSidebar />
 
         <main>
           <Logo />
-          <LoginContent />
+          {/* 검색결과 불러오기 */}
+          <SearchItems />
           <Footer />
         </main>
 
+        {/* 우측 aside */}
         <RightSidebar />
       </div>
     </div>
   );
 }
-export default LoginPage;
+export default SearchPage;

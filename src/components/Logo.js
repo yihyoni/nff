@@ -1,19 +1,26 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  setLeftSidebarToggle,
+  setRightSidebarToggle,
+} from "../store/sidebarSlice";
 
-function Logo(props) {
+function Logo() {
+  const dispatch = useDispatch();
+
   return (
     <div className="image-container">
       <img
         src="/menu-left.svg"
         alt="왼쪽 메뉴"
         className="menu-left menu-icon"
-        onMouseEnter={() => props.setLeftSidebarToggle(true)}
-        onMouseLeave={() => props.setLeftSidebarToggle(false)}
+        onMouseEnter={() => dispatch(setLeftSidebarToggle(true))}
+        onMouseLeave={() => dispatch(setLeftSidebarToggle(false))}
       />
       <Link to="/">
         <img
           src="https://yihyoni.github.io/nff_product/logo.svg"
-          alt="로고"
+          alt="메인 로고"
           className="main-logo"
         />
       </Link>
@@ -21,8 +28,8 @@ function Logo(props) {
         src="/menu-right.svg"
         alt="오른쪽 메뉴"
         className="menu-right menu-icon"
-        onMouseEnter={() => props.setRightSidebarToggle(true)}
-        onMouseLeave={() => props.setRightSidebarToggle(false)}
+        onMouseEnter={() => dispatch(setRightSidebarToggle(true))}
+        onMouseLeave={() => dispatch(setRightSidebarToggle(false))}
       />
     </div>
   );
