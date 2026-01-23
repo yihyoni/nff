@@ -90,10 +90,12 @@ header .ticker-wrap .ticker li {
 .sidebar li {
   margin-bottom: 40px;
 }
-.sidebar li a {
+.sidebar li a,
+.sidebar li button {
   position: relative;
 }
-.sidebar li a::after {
+.sidebar li a::after,
+.sidebar li button::after {
   content: "";
   position: absolute;
   height: 2px;
@@ -103,10 +105,12 @@ header .ticker-wrap .ticker li {
   background-color: #cf6e91;
   transition: 0.3s;
 }
-.sidebar li a:hover:after {
+.sidebar li a:hover:after,
+.sidebar li button:hover:after {
   width: 100%;
 }
-.sidebar li a:hover {
+.sidebar li a:hover,
+.sidebar li button:hover {
   color: #da7c98;
 }
 .sidebar .dropdown-content {

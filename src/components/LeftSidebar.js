@@ -8,7 +8,7 @@ import {
 } from "../store/sidebarSlice";
 import { setCurrentCategory } from "../store/pageSlice";
 
-function LeftSidebar({ handleCategoryChange }) {
+function LeftSidebar() {
   const dispatch = useDispatch();
 
   // 왼쪽 사이드바 열기

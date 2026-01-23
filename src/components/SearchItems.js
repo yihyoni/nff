@@ -31,8 +31,8 @@ function SearchItems() {
             // 축약형 (category: category)
             // 받아온 상품 데이터(res.data)의 각각 요소(item)에다가
             // category 값을 추가해서, 새롭게 가공된 배열을 만드는 것
-          })),
-        ),
+          }))
+        )
     );
 
     // 전체 아이템 배열 합치기
