@@ -1,18 +1,22 @@
 import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "../components/Header";
 import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import Pagination from "../components/Pagination";
-// import FingerItems from "../components/FingerItems";
+// import HairItems from "../components/HairItems";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 import { setCurrentCategory } from "../store/pageSlice";
 import ProductItems from "../components/ProductItems";
 
-function FingerPage() {
+function CategoryPage() {
   const dispatch = useDispatch();
+
+  // URL 파라미터 값
+  const { category } = useParams(); // fingers, hair, necklace 등등
 
   // Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
@@ -21,8 +25,8 @@ function FingerPage() {
   // 카테고리 진입 시 항상 첫 페이지(1페이지)부터 보여주기
   // 페이지 진입 시 카테고리 설정 + 첫 페이지로 초기화
   useEffect(() => {
-    dispatch(setCurrentCategory("fingers"));
-  }, []);
+    dispatch(setCurrentCategory(category));
+  }, [category]);
 
   return (
     <div className="wrapper">
@@ -31,7 +35,6 @@ function FingerPage() {
 
       {/* 헤더 */}
       <Header />
-
       {/* 컨테이너 시작 */}
       <div className="container">
         {/* 왼쪽 aside */}
@@ -42,8 +45,7 @@ function FingerPage() {
           <Logo />
 
           {/* items */}
-          {/* <FingerItems /> */}
-          <ProductItems category="fingers" />
+          <ProductItems category={category} />
 
           {/* pages */}
           <Pagination />
@@ -59,4 +61,4 @@ function FingerPage() {
   );
 }
 
-export default FingerPage;
+export default CategoryPage;

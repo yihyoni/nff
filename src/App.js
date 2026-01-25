@@ -1,14 +1,12 @@
 import "./style/main.scss";
 import { Routes, Route, Navigate } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import FingerPage from "./pages/FingerPage";
-import NeckPage from "./pages/NeckPage";
-import HairPage from "./pages/HairPage";
 import CartPage from "./pages/CartPage";
 import WishListPage from "./pages/WishListPage";
 import DetailPage from "./pages/DetailPage";
 import LoginPage from "./pages/LoginPage";
 import SearchPage from "./pages/SearchPage";
+import CategoryPage from "./pages/CategoryPage";
 import { useSelector } from "react-redux";
 
 function App() {
@@ -26,12 +24,8 @@ function App() {
       {/* 검색창 페이지 */}
       <Route path="/search" element={<SearchPage />}></Route>
 
-      {/* shop 주소 접속시 메인페이지로 이동 */}
-      <Route path="/shop" element={<Navigate to="/" replace />} />
       {/* 상품 카테고리 페이지*/}
-      <Route path="/shop/fingers" element={<FingerPage />} />
-      <Route path="/shop/hair" element={<HairPage />} />
-      <Route path="/shop/necklace" element={<NeckPage />} />
+      <Route path="/shop/:category" element={<CategoryPage />} />
 
       {/* 장바구니 페이지 */}
       <Route path="/cart" element={<CartPage />} />
