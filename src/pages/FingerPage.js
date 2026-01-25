@@ -5,10 +5,11 @@ import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import Pagination from "../components/Pagination";
-import FingerItems from "../components/FingerItems";
+// import FingerItems from "../components/FingerItems";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 import { setCurrentCategory } from "../store/pageSlice";
+import ProductItems from "../components/ProductItems";
 
 function FingerPage() {
   const dispatch = useDispatch();
@@ -41,7 +42,8 @@ function FingerPage() {
           <Logo />
 
           {/* items */}
-          <FingerItems />
+          {/* <FingerItems /> */}
+          <ProductItems category="fingers" />
 
           {/* pages */}
           <Pagination />

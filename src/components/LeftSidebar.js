@@ -29,7 +29,7 @@ function LeftSidebar() {
     >
       <ul className="category">
         <li onClick={() => dispatch(setSearchOpen(true))}>
-          <Link to="#">SEARCH</Link>
+          <button>SEARCH</button>
         </li>
         <li
           onMouseEnter={() => dispatch(setIsShopHovered(true))}

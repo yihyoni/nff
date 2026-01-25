@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { setTotalPages } from "../store/pageSlice";
 
-function NeckItems() {
+function ProductItems({ category }) {
   const dispatch = useDispatch();
 
   // 현재 페이지 상태
@@ -17,12 +17,12 @@ function NeckItems() {
   // 상태를 빈 배열로 시작하고, 나중에 데이터를 받아와서 배열에 데이터를 저장
   // 원본과 화면에 보여줄 데이터를 분리해서 상태로 관리
   const [originalData, setOriginalData] = useState([]); // 상품 원본 보관용
-  const [visibleData, setVisibleData] = useState([]);
+  const [visibleData, setVisibleData] = useState([]); // 사용자한테 보여줄 상품 데이터
 
   // 상품 데이터(외부데이터) 갖고오기 - 처음 화면에 나타날 때만 실행
-  useEffect((error) => {
+  useEffect(() => {
     axios
-      .get("https://yihyoni.github.io/nff_product/necklace.json")
+      .get(`https://yihyoni.github.io/nff_product/${category}.json`)
       .then((response) => {
         const sorted = [...response.data].sort((a, b) => a.id - b.id);
         // 오름차순 정렬
@@ -36,7 +36,7 @@ function NeckItems() {
       .catch((error) => {
         console.error("데이터 로드 실패:", error);
       });
-  }, []);
+  }, [category]);
 
   // 처음에 데이터 없는 상태라 빈배열인 경우 오류 방지
   // 데이터가 로드되지 않았을 때 로딩 메시지 표시
@@ -61,7 +61,7 @@ function NeckItems() {
         return (
           <div key={a.id} className="item">
             {/* 상품 이미지 클릭 시 해당 상품 페이지로 이동 */}
-            <Link to={`/detail/necklace/${a.id}`}>
+            <Link to={`/detail/${category}/${a.id}`}>
               <div className="overlay-wrap">
                 <div className="overlay">
                   <p>{a.title}</p>
@@ -70,7 +70,7 @@ function NeckItems() {
               </div>
 
               <img
-                src={`https://yihyoni.github.io/nff_product/necklace/necklace${a.id}.jpg`}
+                src={`https://yihyoni.github.io/nff_product/${category}/${category}${a.id}.jpg`}
                 alt={a.title}
               />
             </Link>
@@ -81,4 +81,4 @@ function NeckItems() {
   );
 }
 
-export default NeckItems;
+export default ProductItems;

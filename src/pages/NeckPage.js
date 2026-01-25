@@ -5,10 +5,11 @@ import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import Pagination from "../components/Pagination";
-import NeckItems from "../components/NeckItems";
+// import NeckItems from "../components/NeckItems";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 import { setCurrentCategory } from "../store/pageSlice";
+import ProductItems from "../components/ProductItems";
 
 function NeckPage() {
   const dispatch = useDispatch();
@@ -41,7 +42,8 @@ function NeckPage() {
           <Logo />
 
           {/* items */}
-          <NeckItems />
+          {/* <NeckItems /> */}
+          <ProductItems category="necklace" />
 
           {/* 페이지 */}
           <Pagination />
