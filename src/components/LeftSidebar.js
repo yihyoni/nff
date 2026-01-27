@@ -52,8 +52,8 @@ function LeftSidebar() {
           )}
         </li>
         <li
-          onMouseOver={() => dispatch(setIsBoardHovered(true))} // 열기
-          onMouseOut={() => dispatch(setIsBoardHovered(false))} // 닫기
+          onMouseEnter={() => dispatch(setIsBoardHovered(true))} // 열기
+          onMouseLeave={() => dispatch(setIsBoardHovered(false))} // 닫기
           className="dropdown"
         >
           <Link to="/">BOARD</Link>
