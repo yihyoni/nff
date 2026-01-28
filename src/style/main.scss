@@ -536,8 +536,8 @@ button {
     background-color: $sub_color;
   }
   button:nth-child(1) {
-    width: 43px;
-    height: 43px;
+    width: 40px;
+    height: 40px;
     &:hover {
       background-color: rgba(168, 24, 67, 0.15);
     }
@@ -760,5 +760,8 @@ select:focus {
 
   .sidebar-right.open {
     transform: translateX(0);
+  }
+  .item-info {
+    width: 82px;
   }
 }
