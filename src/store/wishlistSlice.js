@@ -10,7 +10,7 @@ let wishlist = createSlice({
         (item) =>
           item.id === action.payload.id &&
           item.category === action.payload.category
-      ); //조건 찾아서 목록에 없는 상품이면 배열 값에 추가
+      ); // 조건 찾아서 목록에 없는 상품이면 배열 값에 추가
       if (!found) {
         state.push(action.payload);
       }

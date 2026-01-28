@@ -11,7 +11,7 @@ let cart = createSlice({
         (item) =>
           item.id === action.payload.id &&
           item.size === action.payload.size &&
-          // 이건 반지만 해당됨. 이거 좀 거슬림 반지만 해당되는건데 모든 아이템이 다 비교해서
+          // size는 반지만 해당
           item.category === action.payload.category
         //  같은 id라도 category가 다를 수 있기 때문에, category까지 비교
       );
@@ -24,13 +24,17 @@ let cart = createSlice({
 
     // 상품 삭제
     removeCartItem: function (state, action) {
-      return state.filter((item) => item.id !== action.payload);
+      const { id, category, size } = action.payload;
+
+      return state.filter(
+        (item) =>
+          !(item.id === id && item.category === category && item.size === size)
+      );
     },
 
     // 단순한 수량 증가 + 버튼
-    // 번호라는 이름 좀 별로라 고쳐줘야할 듯 - 수량 같은 걸로?
     addCount: function (state, action) {
-      let 번호 = state.findIndex(
+      let 수량 = state.findIndex(
         (item) =>
           item.id === action.payload.id &&
           item.category === action.payload.category &&
@@ -42,15 +46,14 @@ let cart = createSlice({
       // 해당 아이템이 없으면 에러 내지 말고 넘어가기(?)
       // 요소가 실제로 존재한다면, 해당 인덱스를 가진 요소의 수량 +1
       // 해당 조건을 가진 상품 인덱스의 수량 +1
-      if (번호 !== -1) {
-        state[번호].count++;
+      if (수량 !== -1) {
+        state[수량].count++;
       }
     },
 
     // 단순한 수량 감소 - 버튼
-    // 번호라는 이름 좀 별로라 고쳐줘야할 듯 - 수량 같은 걸로
     decreaseCount: function (state, action) {
-      let 번호 = state.findIndex(
+      let 수량 = state.findIndex(
         (item) =>
           item.id === action.payload.id &&
           item.category === action.payload.category &&
@@ -60,8 +63,8 @@ let cart = createSlice({
       // 수량이 존재하고, 1 이상일 때만 수량 줄이기
       // 해당 조건을 가진 상품 인덱스를 가진 상품의 수량을 -1만큼 줄여주기
       // 인덱스로 상품을 찾고 그 상품의 count 속성에 접근해서 수량을 조절
-      if (번호 !== -1 && state[번호].count > 1) {
-        state[번호].count--;
+      if (수량 !== -1 && state[수량].count > 1) {
+        state[수량].count--;
       }
     },
 

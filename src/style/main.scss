@@ -21,43 +21,40 @@ $black: #222222;
   height: 100%;
 }
 
-// 헤더
+// 뉴스티커
 header {
-  position: fixed; // 뉴스티커 부분
+  position: fixed;
   width: 100%;
   background-color: $main_color;
   color: $sub_color;
   text-align: center;
-  align-items: center;
   z-index: 999;
+
   .ticker-wrap {
-    height: 2vw;
+    height: 29px;
     overflow: hidden;
 
     .ticker {
       animation: ticker-scroll 3s linear infinite;
 
       li {
-        height: 2vw;
-        line-height: 2vw;
-        font-size: 1vw;
+        height: 29px;
+        line-height: 29px; // 세로 중앙 정렬
+        font-size: 14px; // 원하는 폰트 크기
+        white-space: nowrap;
       }
     }
   }
 }
 
 @keyframes ticker-scroll {
-  0% {
-    transform: translateY(0);
-  }
+  0%,
   25% {
     transform: translateY(0);
   }
-  50% {
-    transform: translateY(-2vw);
-  }
+  50%,
   75% {
-    transform: translateY(-2vw);
+    transform: translateY(-29px); // 한 줄 높이만큼 이동
   }
   100% {
     transform: translateY(0);
@@ -128,16 +125,16 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    // justify-content: center; // 수평 가운데 정렬
 
     .bg-image {
-      width: 52.5vw;
-      height: 35vw;
-    } //  여기서 clamp 지정해주니까 꺠짐
+      width: clamp(20.9375rem, 52.5vw, 47.25rem);
+      height: auto;
+      max-width: 100%;
+    }
 
     .main-logo {
-      width: 14.2vw;
-      height: 13.4vw;
+      width: clamp(5.25rem, 14vw, 12.75rem);
+      height: auto;
     }
 
     .menu-icon {
@@ -187,7 +184,7 @@ header {
         width: 100%;
         color: black;
         padding: 1.2vw;
-        font-size: 1vw;
+        font-size: clamp(0.625rem, 1.1vw, 1rem);
       }
     }
 
@@ -240,7 +237,7 @@ header {
   width: 100%;
   margin-bottom: 7.06rem;
   button {
-    font-size: 1vw;
+    font-size: clamp(0.625rem, 1vw, 0.875rem);
     color: $main_color;
   }
 }
@@ -250,7 +247,7 @@ header {
   .cart-title {
     width: 100%;
     padding: 0.694vw 0;
-    font-size: 1.15vw;
+    font-size: clamp(0.625rem, 1.1vw, 1rem);
     background-color: $main_color;
     color: $sub_color;
   }
@@ -265,24 +262,25 @@ header {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  padding: 1.39vw;
+  padding: 20px;
   border-bottom: 1px solid $main_color;
   align-items: center;
   text-align: center;
 }
 
 .item-image img {
-  width: 10.42vw;
+  width: 150px;
   border: 1px solid $main_color;
 }
 
 .item-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  margin-top: 16px;
+  gap: clamp(0.5625rem, 0.63vw, 1.25rem);
 
   p {
-    font-size: 1vw;
+    font-size: clamp(0.625rem, 1vw, 0.875rem);
   }
 
   .name-price {
@@ -296,11 +294,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1vw;
+    font-size: clamp(0.625rem, 1vw, 0.875rem);
     gap: 20px;
     button img {
-      width: 1.25vw;
-      height: 1.25vw;
+      width: 18px;
+      height: 18px;
     }
   }
 
@@ -327,7 +325,7 @@ header {
   }
 
   span {
-    font-size: 1vw;
+    font-size: clamp(0.625rem, 1vw, 0.875rem);
   }
 }
 .cart-footer {
@@ -341,7 +339,7 @@ header {
   button {
     color: $sub_color;
     width: 100%;
-    font-size: 1.15vw;
+    font-size: clamp(0.625rem, 1.1vw, 1rem);
   }
 }
 
@@ -399,14 +397,16 @@ button {
     gap: 10px;
 
     img {
-      width: 100px;
-      height: 100px;
+      width: 170px;
+      height: auto;
       margin: auto;
       border: 1px solid black;
     }
     p {
+      font-size: 14px;
+    }
+    p:first-of-type {
       font-weight: bold;
-      font-size: 1vw;
     }
   }
 
@@ -429,17 +429,16 @@ button {
   .cart-buttons {
     display: flex;
     flex-direction: column;
+    font-size: 14px;
   }
 }
 
 .trash-cart button {
-  // text-align: center;
   padding: 0.694vw;
   border: 1px solid transparent;
-  // font-size: 1vw;
   img {
-    width: 1.67vw; //24px
-    height: 1.67vw;
+    width: 24px;
+    height: auto;
   }
 }
 
@@ -449,7 +448,7 @@ button {
   margin-bottom: 7.06rem;
   button {
     color: $main_color;
-    font-size: 1vw;
+    font-size: clamp(0.625rem, 1vw, 0.875rem);
   }
 }
 
@@ -458,7 +457,7 @@ button {
   .wish-title {
     width: 100%;
     padding: 0.694vw 0;
-    font-size: 1.15vw;
+    font-size: clamp(0.625rem, 1.1vw, 1rem);
     background-color: $white;
     color: $main_color;
     border-top: 1px solid $main_color;
@@ -475,7 +474,7 @@ button {
 .wish-item {
   display: flex;
   justify-content: space-between;
-  padding: 1.39vw;
+  padding: 20px;
   border-bottom: 1px solid $main_color;
   align-items: center;
   text-align: center;
@@ -496,7 +495,9 @@ button {
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid $main_color;
-  font-size: 1.15vw;
+  button {
+    font-size: clamp(0.625rem, 1.1vw, 1rem);
+  }
 }
 
 // 상세페이지
@@ -507,12 +508,12 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3.82vw;
+  gap: 55px;
   flex-wrap: wrap;
 }
 .product-image img {
-  width: 29.03vw;
-  height: 29.03vw;
+  width: clamp(19.125rem, 29vw, 26.125rem);
+  height: auto;
 }
 .product-detail {
   display: flex;
@@ -530,26 +531,26 @@ button {
   display: flex;
   gap: 0.833vw;
   button {
-    font-size: 1vw;
+    font-size: 16px;
     text-align: center;
-    height: 2.778vw;
     background-color: $sub_color;
   }
   button:nth-child(1) {
-    width: 2.778vw;
+    width: 43px;
+    height: 43px;
     &:hover {
       background-color: rgba(168, 24, 67, 0.15);
     }
     img {
-      width: 1.389vw;
-      height: 1.25vw;
+      width: 20px;
+      height: 18px;
       margin: auto;
     }
   }
 
-  button:nth-child(2),
-  button:nth-child(3) {
-    width: 9.167vw;
+  button:nth-child(2) {
+    width: 132px;
+    height: 40px;
   }
   button:hover {
     background-color: rgba(168, 24, 67, 0.15); // 연한 메인컬러 배경
@@ -558,23 +559,23 @@ button {
 }
 
 .product-info {
-  width: 22.78vw;
+  width: 330px;
   display: flex;
   flex-direction: column;
-  gap: 1.39vw; //20px
+  gap: 20px;
   align-items: center;
 
   p {
-    font-size: 1vw;
+    font-size: 14px;
     text-align: center;
   }
   .product-name {
     font-weight: bold;
-    font-size: 2.22vw;
+    font-size: 32px;
     color: $text_color;
   }
   .product-price {
-    font-size: 1.39vw;
+    font-size: 20px;
     font-weight: bold;
     color: $text_color;
   }
@@ -584,8 +585,8 @@ button {
   display: flex;
   align-items: center;
   position: relative;
-  width: 16.5vw;
-  height: 2.778vw;
+  width: 240px;
+  height: 40px;
 }
 
 .size-select {
@@ -594,10 +595,10 @@ button {
   text-align: center;
   padding: 0 0.833vw; // 좌우 padding 12px
   cursor: pointer;
-  font-size: 1vw;
+  font-size: 14px;
   border: 1px solid $main_color;
   background-color: $white;
-  border-radius: 0.556vw;
+  border-radius: 10px;
   color: $black;
   background-size: 1rem;
   appearance: none; // 브라우저 기본 스타일 제거
@@ -616,8 +617,8 @@ button {
   right: 0.833vw;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.25vw;
-  height: 1.25vw;
+  width: 16px;
+  height: auto;
   pointer-events: none;
 }
 
@@ -674,10 +675,11 @@ select:focus {
     border: 1px solid black;
     z-index: 999;
     .search-box {
-      width: 40vw;
+      width: clamp(13.75rem, 40vw, 36rem);
+      height: clamp(2.25rem, 4.4vw, 4rem);
       padding: 1.5vw;
       border: none;
-      font-size: 16px;
+      font-size: clamp(0.875rem, 1.1vw, 1rem);
     }
   }
 }
@@ -688,7 +690,7 @@ select:focus {
   .search-title {
     width: 100%;
     padding: 0.694vw 0;
-    font-size: 1.15vw;
+    font-size: 1rem;
     background-color: $sub_color;
     color: $main_color;
     text-align: center;
@@ -701,13 +703,15 @@ select:focus {
     justify-content: center;
     align-items: center;
     border-bottom: 1px solid $main_color;
+    width: 100%;
+    padding: 50px 25px;
+    gap: 16px;
   }
   .search-item {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 50px 25px;
-    gap: 16px;
     text-align: center;
   }
   .search-item img {

@@ -59,13 +59,12 @@ function WishListContent() {
                         addCartItem(
                           item.category === "fingers"
                             ? { ...item, count: 1, size: "" }
-                            : { ...item, count: 1 },
-                        ), // count: 1을 따로 추가해줘야 장바구니용 데이터로 완성
+                            : { ...item, count: 1 }
+                        ) // count: 1을 따로 추가해줘야 장바구니용 데이터로 완성
                         // fingers 카테고리일때만 저  size 빈문자열을 인자로 보내기
                         // size: "" 를 써줘야 장바구니 페이지(CartContent.js)의 사이즈를 선택해주세요가 보이게 되고, 선택안함이 보이게 된다.
                       );
                       dispatch(removeWishlistItem(item)); // 위시리스트에서는 삭제
-                      // 이거 지금 인자로 item 만 보내고 있는데 category 보내야 할 거 같은데
                       alert("장바구니에 담았습니다.");
                     }}
                   >
@@ -99,7 +98,7 @@ function WishListContent() {
           alert("모든 위시리스트 상품이 장바구니에 담겼습니다.");
         }}
       >
-        <button className="checkout-button">전체 상품 주문</button>
+        <button>전체 상품 주문</button>
       </div>
     </div>
   );

@@ -45,34 +45,28 @@ header {
   background-color: #da7c98;
   color: #fff0f0;
   text-align: center;
-  align-items: center;
   z-index: 999;
 }
 header .ticker-wrap {
-  height: 2vw;
+  height: 29px;
   overflow: hidden;
 }
 header .ticker-wrap .ticker {
   animation: ticker-scroll 3s linear infinite;
 }
 header .ticker-wrap .ticker li {
-  height: 2vw;
-  line-height: 2vw;
-  font-size: 1vw;
+  height: 29px;
+  line-height: 29px;
+  font-size: 14px;
+  white-space: nowrap;
 }
 
 @keyframes ticker-scroll {
-  0% {
+  0%, 25% {
     transform: translateY(0);
   }
-  25% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-2vw);
-  }
-  75% {
-    transform: translateY(-2vw);
+  50%, 75% {
+    transform: translateY(-29px);
   }
   100% {
     transform: translateY(0);
@@ -141,12 +135,13 @@ header .ticker-wrap .ticker li {
   align-items: center;
 }
 .container main .bg-image {
-  width: 52.5vw;
-  height: 35vw;
+  width: clamp(20.9375rem, 52.5vw, 47.25rem);
+  height: auto;
+  max-width: 100%;
 }
 .container main .main-logo {
-  width: 14.2vw;
-  height: 13.4vw;
+  width: clamp(5.25rem, 14vw, 12.75rem);
+  height: auto;
 }
 .container main .menu-icon {
   cursor: pointer;
@@ -188,7 +183,7 @@ header .ticker-wrap .ticker li {
   width: 100%;
   color: black;
   padding: 1.2vw;
-  font-size: 1vw;
+  font-size: clamp(0.625rem, 1.1vw, 1rem);
 }
 .item-container .item img {
   -o-object-fit: cover;
@@ -233,7 +228,7 @@ header .ticker-wrap .ticker li {
   margin-bottom: 7.06rem;
 }
 .cart-container button {
-  font-size: 1vw;
+  font-size: clamp(0.625rem, 1vw, 0.875rem);
   color: #da7c98;
 }
 
@@ -243,7 +238,7 @@ header .ticker-wrap .ticker li {
 .cart-header .cart-title {
   width: 100%;
   padding: 0.694vw 0;
-  font-size: 1.15vw;
+  font-size: clamp(0.625rem, 1.1vw, 1rem);
   background-color: #da7c98;
   color: #fff0f0;
 }
@@ -257,24 +252,25 @@ header .ticker-wrap .ticker li {
 .cart-item {
   display: flex;
   justify-content: space-between;
-  padding: 1.39vw;
+  padding: 20px;
   border-bottom: 1px solid #da7c98;
   align-items: center;
   text-align: center;
 }
 
 .item-image img {
-  width: 10.42vw;
+  width: 150px;
   border: 1px solid #da7c98;
 }
 
 .item-info {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  margin-top: 16px;
+  gap: clamp(0.5625rem, 0.63vw, 1.25rem);
 }
 .item-info p {
-  font-size: 1vw;
+  font-size: clamp(0.625rem, 1vw, 0.875rem);
 }
 .item-info .name-price {
   flex-direction: column;
@@ -286,12 +282,12 @@ header .ticker-wrap .ticker li {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 1vw;
+  font-size: clamp(0.625rem, 1vw, 0.875rem);
   gap: 20px;
 }
 .item-info .item-count button img {
-  width: 1.25vw;
-  height: 1.25vw;
+  width: 18px;
+  height: 18px;
 }
 .item-info .size-button {
   color: #222222;
@@ -311,7 +307,7 @@ header .ticker-wrap .ticker li {
   border-bottom: 1px solid #da7c98;
 }
 .cart-summary span {
-  font-size: 1vw;
+  font-size: clamp(0.625rem, 1vw, 0.875rem);
 }
 
 .cart-footer {
@@ -325,7 +321,7 @@ header .ticker-wrap .ticker li {
 .cart-footer button {
   color: #fff0f0;
   width: 100%;
-  font-size: 1.15vw;
+  font-size: clamp(0.625rem, 1.1vw, 1rem);
 }
 
 button {
@@ -380,14 +376,16 @@ button {
   gap: 10px;
 }
 .modal .name-price img {
-  width: 100px;
-  height: 100px;
+  width: 170px;
+  height: auto;
   margin: auto;
   border: 1px solid black;
 }
 .modal .name-price p {
+  font-size: 14px;
+}
+.modal .name-price p:first-of-type {
   font-weight: bold;
-  font-size: 1vw;
 }
 .modal .modal-buttons {
   display: flex;
@@ -407,6 +405,7 @@ button {
 .modal .cart-buttons {
   display: flex;
   flex-direction: column;
+  font-size: 14px;
 }
 
 .trash-cart button {
@@ -414,8 +413,8 @@ button {
   border: 1px solid transparent;
 }
 .trash-cart button img {
-  width: 1.67vw;
-  height: 1.67vw;
+  width: 24px;
+  height: auto;
 }
 
 .wish-container {
@@ -424,7 +423,7 @@ button {
 }
 .wish-container button {
   color: #da7c98;
-  font-size: 1vw;
+  font-size: clamp(0.625rem, 1vw, 0.875rem);
 }
 
 .wish-header {
@@ -433,7 +432,7 @@ button {
 .wish-header .wish-title {
   width: 100%;
   padding: 0.694vw 0;
-  font-size: 1.15vw;
+  font-size: clamp(0.625rem, 1.1vw, 1rem);
   background-color: #ffffff;
   color: #da7c98;
   border-top: 1px solid #da7c98;
@@ -449,7 +448,7 @@ button {
 .wish-item {
   display: flex;
   justify-content: space-between;
-  padding: 1.39vw;
+  padding: 20px;
   border-bottom: 1px solid #da7c98;
   align-items: center;
   text-align: center;
@@ -469,7 +468,9 @@ button {
   align-items: center;
   justify-content: center;
   border-bottom: 1px solid #da7c98;
-  font-size: 1.15vw;
+}
+.wish-footer button {
+  font-size: clamp(0.625rem, 1.1vw, 1rem);
 }
 
 .detail-container {
@@ -480,13 +481,13 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 3.82vw;
+  gap: 55px;
   flex-wrap: wrap;
 }
 
 .product-image img {
-  width: 29.03vw;
-  height: 29.03vw;
+  width: clamp(19.125rem, 29vw, 26.125rem);
+  height: auto;
 }
 
 .product-detail {
@@ -506,25 +507,25 @@ button {
   gap: 0.833vw;
 }
 .action-buttons button {
-  font-size: 1vw;
+  font-size: 16px;
   text-align: center;
-  height: 2.778vw;
   background-color: #fff0f0;
 }
 .action-buttons button:nth-child(1) {
-  width: 2.778vw;
+  width: 43px;
+  height: 43px;
 }
 .action-buttons button:nth-child(1):hover {
   background-color: rgba(168, 24, 67, 0.15);
 }
 .action-buttons button:nth-child(1) img {
-  width: 1.389vw;
-  height: 1.25vw;
+  width: 20px;
+  height: 18px;
   margin: auto;
 }
-.action-buttons button:nth-child(2),
-.action-buttons button:nth-child(3) {
-  width: 9.167vw;
+.action-buttons button:nth-child(2) {
+  width: 132px;
+  height: 40px;
 }
 .action-buttons button:hover {
   background-color: rgba(168, 24, 67, 0.15);
@@ -532,23 +533,23 @@ button {
 }
 
 .product-info {
-  width: 22.78vw;
+  width: 330px;
   display: flex;
   flex-direction: column;
-  gap: 1.39vw;
+  gap: 20px;
   align-items: center;
 }
 .product-info p {
-  font-size: 1vw;
+  font-size: 14px;
   text-align: center;
 }
 .product-info .product-name {
   font-weight: bold;
-  font-size: 2.22vw;
+  font-size: 32px;
   color: #cf6e91;
 }
 .product-info .product-price {
-  font-size: 1.39vw;
+  font-size: 20px;
   font-weight: bold;
   color: #cf6e91;
 }
@@ -557,8 +558,8 @@ button {
   display: flex;
   align-items: center;
   position: relative;
-  width: 16.5vw;
-  height: 2.778vw;
+  width: 240px;
+  height: 40px;
 }
 
 .size-select {
@@ -567,10 +568,10 @@ button {
   text-align: center;
   padding: 0 0.833vw;
   cursor: pointer;
-  font-size: 1vw;
+  font-size: 14px;
   border: 1px solid #da7c98;
   background-color: #ffffff;
-  border-radius: 0.556vw;
+  border-radius: 10px;
   color: #222222;
   background-size: 1rem;
   appearance: none;
@@ -588,8 +589,8 @@ button {
   right: 0.833vw;
   top: 50%;
   transform: translateY(-50%);
-  width: 1.25vw;
-  height: 1.25vw;
+  width: 16px;
+  height: auto;
   pointer-events: none;
 }
 
@@ -646,10 +647,11 @@ select:focus {
   z-index: 999;
 }
 .search-content .search .search-box {
-  width: 40vw;
+  width: clamp(13.75rem, 40vw, 36rem);
+  height: clamp(2.25rem, 4.4vw, 4rem);
   padding: 1.5vw;
   border: none;
-  font-size: 16px;
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
 }
 
 .search-container {
@@ -659,7 +661,7 @@ select:focus {
 .search-container .search-title {
   width: 100%;
   padding: 0.694vw 0;
-  font-size: 1.15vw;
+  font-size: 1rem;
   background-color: #fff0f0;
   color: #da7c98;
   text-align: center;
@@ -672,13 +674,15 @@ select:focus {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #da7c98;
+  width: 100%;
+  padding: 50px 25px;
+  gap: 16px;
 }
 .search-container .search-item {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 25px;
-  gap: 16px;
   text-align: center;
 }
 .search-container .search-item img {

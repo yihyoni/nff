@@ -15,7 +15,6 @@ function DetailContent() {
 
   // axios 로 갖고온 상품 데이터를 저장
   // 빈박스인 상태로 생성하고 담기위해 null 로 시작.
-  // [] 빈배열이 아니라 null 로 시작해도 되나?
   const [product, setProduct] = useState(null);
 
   // 위시리스트 배열 갖고오기
@@ -62,7 +61,7 @@ function DetailContent() {
   // 카테고리도 동일해야하고 id 도 동일해야 true 반환
   // wishlist 에 있는 지 확인해서 하트 토글 조건으로 사용
   const isWished = wishListItems.some(
-    (item) => item.id === product.id && item.category === category,
+    (item) => item.id === product.id && item.category === category
   );
 
   // 하트 위시리시트 토글 함수 (위시리스트 추가/제거 토글)

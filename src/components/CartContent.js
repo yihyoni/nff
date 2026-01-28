@@ -100,8 +100,8 @@ function CartContent() {
                               : {
                                   id: item.id,
                                   category: item.category,
-                                },
-                          ),
+                                }
+                          )
                         )
                       }
                     >
@@ -125,8 +125,8 @@ function CartContent() {
                               : {
                                   id: item.id,
                                   category: item.category,
-                                },
-                          ),
+                                }
+                          )
                         )
                       }
                     >
@@ -202,7 +202,7 @@ function CartContent() {
                                 updateItemSize({
                                   id: item.id,
                                   size: selectedSize,
-                                }),
+                                })
                               );
                               setOpenItemId(null); // 모달창 닫기
                             }}
@@ -223,7 +223,15 @@ function CartContent() {
                 <div className="item-remove">
                   <button
                     className="remove-button"
-                    onClick={() => dispatch(removeCartItem(item.id))} // 상품 삭제
+                    onClick={() =>
+                      dispatch(
+                        removeCartItem({
+                          id: item.id,
+                          category: item.category,
+                          size: item.size,
+                        })
+                      )
+                    } // 상품 삭제
                   >
                     삭제
                   </button>
