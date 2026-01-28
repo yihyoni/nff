@@ -190,7 +190,7 @@ function CartContent() {
                           </div>
                         )}
 
-                        <div className="modal-buttons">
+                        <div className=" ">
                           <button
                             onClick={() => {
                               if (selectedSize === "") {
