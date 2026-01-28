@@ -220,8 +220,7 @@ function DetailContent() {
       {/* 상품 상세 이미지 */}
       <div className="product-detail">
         <img
-          src={`https://yihyoni.github.io/nff_product/${category}/${category}${id}_detail.jpg`} // 폴더명+아이디_detail.jpg
-          // hair0_detail.jpg
+          src={`https://yihyoni.github.io/nff_product/${category}/${category}${id}_detail.jpg`}
           alt={`상세 이미지 ${id}`}
         />
       </div>

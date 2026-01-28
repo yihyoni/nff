@@ -6,7 +6,6 @@ import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
 import SearchOverlay from "../components/SearchOverlay";
 import Pagination from "../components/Pagination";
-// import HairItems from "../components/HairItems";
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
 import { setCurrentCategory } from "../store/pageSlice";

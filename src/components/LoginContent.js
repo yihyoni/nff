@@ -47,14 +47,14 @@ function LoginContent() {
             type="text"
             placeholder="아이디"
             value={id}
-            onChange={(e) => setId(e.target.value)} // 입력될 때마다 id 업데이트
+            onChange={(e) => setId(e.target.value)} // id 업데이트
           />
           <input
             className="login-input"
             type="password"
             placeholder="비밀번호"
             value={password}
-            onChange={(e) => setPassword(e.target.value)} // 입력될 때마다 pw 업데이트
+            onChange={(e) => setPassword(e.target.value)} // pw 업데이트
           />
           <button className="login-button" onClick={handleLogin}>
             로그인하기
