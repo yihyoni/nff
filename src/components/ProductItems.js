@@ -14,7 +14,6 @@ function ProductItems({ category }) {
   const itemsCount = 9;
 
   // 상품 목록 담을 그릇 - 초기값으로 빈 배열 설정
-  // 상태를 빈 배열로 시작하고, 나중에 데이터를 받아와서 배열에 데이터를 저장
   // 원본과 화면에 보여줄 데이터를 분리해서 상태로 관리
   const [originalData, setOriginalData] = useState([]); // 상품 원본 보관용
   const [visibleData, setVisibleData] = useState([]); // 사용자한테 보여줄 상품 데이터
@@ -39,8 +38,6 @@ function ProductItems({ category }) {
   }, [category]);
 
   // 처음에 데이터 없는 상태라 빈배열인 경우 오류 방지
-  // 데이터가 로드되지 않았을 때 로딩 메시지 표시
-  // 아이템 배열의 길이가 0 이면, 아이템 배열이 비어있으면 return 문 출력.
   if (visibleData.length === 0) {
     return <p>LOADING...</p>;
   }
@@ -51,11 +48,9 @@ function ProductItems({ category }) {
   const endIndex = startIndex + itemsCount;
   // 현재 페이지에 맞는 상품들만 선택
   const currentItems = visibleData.slice(startIndex, endIndex);
-  // currentPage가 바뀌면 → slice 구간이 바뀌고 → map 결과가 달라져서 → 화면이 바뀜.
 
   return (
     <div className="item-container">
-      {/* map 함수 이용해서 데이터 개수만큼 생성. */}
       {/* 해당 상품의 id로 상품 보여주기 */}
       {currentItems.map((a) => {
         return (

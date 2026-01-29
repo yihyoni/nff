@@ -14,11 +14,9 @@ function DetailContent() {
   const { category, id } = useParams();
 
   // axios 로 갖고온 상품 데이터를 저장
-  // 빈박스인 상태로 생성하고 담기위해 null 로 시작.
   const [product, setProduct] = useState(null);
 
   // 위시리스트 배열 갖고오기
-  // 현재 해당 상품이 위시리스트에 담겨있는지 여부 확인 위해 갖고옴.
   const wishListItems = useSelector((state) => state.wishlist);
 
   // 사용자 로그인 여부 확인 - 하트버튼 로그인한 사람만 눌러야 하기 때문
@@ -40,10 +38,7 @@ function DetailContent() {
       .get(`https://yihyoni.github.io/nff_product/${category}.json`)
       .then((res) => {
         const item = res.data.find((item) => String(item.id) === id);
-        // id가 URL에서 받아온 id랑 일치하는 상품 하나만 찾기
-        // item.id = 갖고온 데이터 id.속성 = 숫자
-        // id는 URL 파라미터에서 받은 값 = 문자열
-        // 해당 카테고리 전체 상품 목록 중에서 id 값이 URL(useParams)에서 가져온 값(id)과 일치하는 상품 하나만 찾아서 해당상품 상세페이지 보여주기
+        // URL 파라미터 id와 일치하는 상품 선택
 
         setProduct(item);
       })
@@ -55,11 +50,7 @@ function DetailContent() {
   // 상품 데이터가 존재하지 않으면 로딩
   if (!product) return <p>로딩중...</p>;
 
-  // product(상품데이터)가 존재할 때만 실행되어야 해서 로딩중 아래에 작성
-  // 이 아래는 product가 확실히 있는 구간
-  // 현재 상세페이지로 보고 있는 상품이 wishlist 에 있는지 확인
-  // 카테고리도 동일해야하고 id 도 동일해야 true 반환
-  // wishlist 에 있는 지 확인해서 하트 토글 조건으로 사용
+  // 현재 상품의 위시리스트 포함 여부
   const isWished = wishListItems.some(
     (item) => item.id === product.id && item.category === category
   );
@@ -75,13 +66,7 @@ function DetailContent() {
     if (isWished) {
       console.log("위시리스트에서 삭제"); // 이미 위시리스트에 있으면 제거
       dispatch(removeWishlistItem({ id: product.id, category }));
-      // 상품 JSON에는 category 정보가 없어서
-      // 위시리스트에서 상품을 구분하고 처리하기 위해 category 값을 함께 전달
-      // category가 있어야 어느 폴더의 어떤 파일을 불러올지 경로를 정확히 만들 수 있음.
-      // 예: hair/hair2.jpg, fingers/fingers3.jpg 이런 식
-      // 나중에 위시리스트에서 장바구니로 보낼 때도 활용됨
-      // 결론: 위시리스트 항목에서도 이미지 경로, 식별, 이동 로직 등에 필요하기 때문에
-      // category 값을 함께 저장한다
+      // 위시리스트 식별 및 이미지 경로 처리를 위해 category 포함
 
       alert("위시리스트에서 삭제되었습니다.");
     } else {
@@ -118,8 +103,8 @@ function DetailContent() {
             <div className="select-wrapper">
               <select
                 className="size-select"
-                value={selectedSize} // 현재 선택된 값을 반영
-                onChange={(e) => setSelectedSize(e.target.value)} // 사용자가 고르면 state에 저장
+                value={selectedSize}
+                onChange={(e) => setSelectedSize(e.target.value)}
               >
                 <option value="">사이즈를 선택해주세요</option>
                 <option value="S">S</option>
@@ -163,10 +148,7 @@ function DetailContent() {
                   category === "fingers"
                     ? { ...product, count: 1, category, size: selectedSize }
                     : { ...product, count: 1, category };
-                // 상품 JSON에는 category 정보가 없기 때문에
-                // 장바구니에 추가할 때 category를 함께 보내서
-                // CartContent에서 이미지 경로나 로직 분기에 활용할 수 있게 만든다
-                // 사용자가 지금 보고 있는 product에서 필요한 정보를 꺼내서, 장바구니에 넣을 객체
+                // 장바구니 처리에 필요한 category 포함
 
                 //  장바구니에 추가 (Redux에 저장)
                 dispatch(addCartItem(itemToAdd)); // 장바구니에 넣기

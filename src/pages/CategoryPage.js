@@ -20,8 +20,6 @@ function CategoryPage() {
   // Redux에서 검색창 열림 여부 가져오기
   const isSearchOpen = useSelector((state) => state.search.isSearchOpen);
 
-  // 해당 카테고리 페이지에 진입했을 시 1번만 실행
-  // 카테고리 진입 시 항상 첫 페이지(1페이지)부터 보여주기
   // 페이지 진입 시 카테고리 설정 + 첫 페이지로 초기화
   useEffect(() => {
     dispatch(setCurrentCategory(category));

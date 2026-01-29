@@ -18,7 +18,6 @@ function WishListPage() {
   // 로그인 상태 갖고오기 - 로그인 된 상태인 지 아닌 지 확인
   const LoggedIn = useSelector((state) => state.user.LoggedIn);
 
-  // 위시리스트 페이지에 접속 시, 로그인 안 한 사용자가 들어오려고 하면 막기
   // 로그인 후 이용 가능
   useEffect(() => {
     if (!LoggedIn) {

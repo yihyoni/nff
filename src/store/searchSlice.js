@@ -11,7 +11,7 @@ let search = createSlice({
     setSearchOpen: (state, action) => {
       state.isSearchOpen = action.payload;
     },
-    // 입력한 검색어 값 담기 (검색어 저장 - 검색어 상태 업데이트)
+    // 검색어 저장 - 검색어 상태 업데이트
     setSearchTerm: (state, action) => {
       state.searchTerm = action.payload;
     },

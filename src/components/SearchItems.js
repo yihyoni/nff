@@ -26,11 +26,7 @@ function SearchItems() {
           res.data.map((item) => ({
             ...item,
             category,
-            // category 속성 추가 - 근데 왜 추가해줘야하지
-            // 어떤 상품이 어떤 카테고리에서 왔는지 구별이 안 돼서
-            // 축약형 (category: category)
-            // 받아온 상품 데이터(res.data)의 각각 요소(item)에다가
-            // category 값을 추가해서, 새롭게 가공된 배열을 만드는 것
+            // 어떤 상품이 어떤 카테고리에서 왔는지 구별이 안 돼서 category 속성 추가
           }))
         )
     );

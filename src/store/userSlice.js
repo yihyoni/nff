@@ -10,7 +10,7 @@ let user = createSlice({
   reducers: {
     // 로그인 시 실행
     login: (state, action) => {
-      state.LoggedIn = true; //로그인된 상태로 변경
+      state.LoggedIn = true; // 로그인된 상태로 변경
       state.info = action.payload; // 유저정보 (이름+비번) 정보 저장
     },
     // 로그아웃 시 실행

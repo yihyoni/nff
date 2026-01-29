@@ -4,7 +4,7 @@ const pageSlice = createSlice({
   name: "page",
   initialState: {
     currentPage: 1, // 현재 페이지 상태
-    totalPages: 1, // 전체 페이지 수 (총 몇 페이지까지 있는지)
+    totalPages: 1, // 전체 페이지 수
     currentCategory: "fingers", // 현재 선택된 카테고리
   },
   reducers: {

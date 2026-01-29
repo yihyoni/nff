@@ -19,7 +19,6 @@ let sidebar = createSlice({
       state.rightSidebarToggle = action.payload;
     },
     // Shop 을 누르면 Board 부분까지 열리는 문제 해결하기 위해 state 2개로 구분해서 생성
-    // ShopHovered, BoardHovered
     setIsShopHovered: (state, action) => {
       state.isShopHovered = action.payload;
     },
