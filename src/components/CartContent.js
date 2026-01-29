@@ -10,14 +10,13 @@ import { useState } from "react";
 
 function CartContent() {
   const dispatch = useDispatch();
-  // Redux에 저장돼있는 장바구니 전체 목록 배열 가져오기
-  // 전역 상태에 저장된 모든 장바구니 아이템을 꺼내서 .map()으로 담긴 목록 보여주기
+
   const cartItems = useSelector((state) => state.cart);
 
   // 배송비
   const deliveryFee = 0;
 
-  // 총 금액 계산 (계산을 위해 문자열 -> 숫자 속성으로 바꾸기)
+  // 총 금액 계산
   function parsePrice(str) {
     const noKRW = str.replace("KRW ", "");
     const noComma = noKRW.replace(",", "");
@@ -32,9 +31,7 @@ function CartContent() {
   // 총 결제 금액 + 배송비
   const grandTotal = totalPrice + deliveryFee;
 
-  // 사이즈 창 토글 - 아이템마다 구분해서 특정 아이템의 모달만 열리도록 구분
-  // 모든 아이템이 같은 상태를 공유하는 문제 해결
-  // 열고 싶은 아이템의 id 저장 (클릭한 아이템의 id )
+  // 모달을 열 때마다 각 아이템에 저장된 사이즈로 select 초기화
   const [openItemId, setOpenItemId] = useState(null);
 
   // 사이즈 변경 변수
@@ -62,18 +59,13 @@ function CartContent() {
         <p className="empty-item">장바구니가 비어있어요.</p>
       ) : (
         <div className="cart-items">
-          {/* 장바구니 상품 목록 */}
           {cartItems.map((item) => {
             return (
               <div className="cart-item" key={item.id}>
                 <div className="item-image">
                   <img
                     src={`https://yihyoni.github.io/nff_product/${item.category}/${item.category}${item.id}.jpg`}
-                    // 상품 이미지 URL 생성 (ex: fingers/fingers5.jpg)
-                    // 각 상품의 id와 category 값을 이용해 해당 상품 이미지 URL을 생성
-                    // 상품의 id를 이용해 상세페이지 경로(`/detail/fingers/5`)와 이미지 경로(`fingers5.jpg`)를 동적으로 구성
-                    // Link에서 상품 id를 기준으로 경로를 구성하고 있기 때문에
-                    // 이미지 파일명도 id 기준으로 맞추면 구조를 일관되게 관리할 수 있음
+                    // category + id 기반 상품 이미지 경로
 
                     alt={item.title}
                   />
@@ -100,14 +92,14 @@ function CartContent() {
                               : {
                                   id: item.id,
                                   category: item.category,
-                                }
-                          )
+                                },
+                          ),
                         )
                       }
                     >
                       <img src="/minus.svg" alt="minus" />
                     </button>
-                    {/* 상품 수량 */}
+
                     <span className="quantity-number">{item.count}</span>
                     <button
                       className="quantity-plus"
@@ -125,8 +117,8 @@ function CartContent() {
                               : {
                                   id: item.id,
                                   category: item.category,
-                                }
-                          )
+                                },
+                          ),
                         )
                       }
                     >
@@ -140,10 +132,8 @@ function CartContent() {
                         className="size-button"
                         onClick={() => {
                           setOpenItemId(item.id);
-                          // 장바구니에 들어있는 아이템 중에서 클릭한 아이템의 id 저장
+                          // 선택한 아이템 기준으로 모달 열고 사이즈 초기화
                           setSelectedSize(item.size);
-                          // 해당 상품의 사이즈 넣어서 select 값 초기화
-                          // 모달을 열 때마다 각 아이템에 저장된 사이즈로 덮어씌워 초기화
                         }}
                       >
                         사이즈: {item.size || "선택안됨"}
@@ -153,10 +143,6 @@ function CartContent() {
                     )}
 
                     {/* 사이즈 버튼 클릭 시 보여줄 모달창 */}
-                    {/* 조건부 렌더링으로 띄우고 싶은 해당 아이템만 모달 띄우기 */}
-                    {/* openItemId는 클릭한 아이템의 id */}
-                    {/* 장바구니에 있는 아이템들의 id 중에서 클릭한 아이템의 id 와 동일하면 모달창 오픈  */}
-                    {/* 장바구니 안에 있던 값들 중에서 내가 클릭한 아이템 하나를 콕 찍어야 하기 때문에  */}
                     {openItemId === item.id && (
                       <div className="modal size-modal">
                         <h2 className="option-title">옵션 변경</h2>
@@ -202,7 +188,7 @@ function CartContent() {
                                 updateItemSize({
                                   id: item.id,
                                   size: selectedSize,
-                                })
+                                }),
                               );
                               setOpenItemId(null); // 모달창 닫기
                             }}
@@ -229,7 +215,7 @@ function CartContent() {
                           id: item.id,
                           category: item.category,
                           size: item.size,
-                        })
+                        }),
                       )
                     } // 상품 삭제
                   >
