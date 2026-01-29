@@ -25,7 +25,7 @@ function ProductItems({ category }) {
       .then((response) => {
         const sorted = [...response.data].sort((a, b) => a.id - b.id);
         // 오름차순 정렬
-        setOriginalData(sorted); // 원본 저장
+        // setOriginalData(sorted); // 원본 저장
         setVisibleData(sorted); // 복제본에다가도 저장
 
         // 총 페이지 수 계산 및 업데이트
