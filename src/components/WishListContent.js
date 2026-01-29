@@ -48,7 +48,7 @@ function WishListContent() {
                       dispatch(removeWishlistItem(item)); // 상품 삭제
                     }}
                   >
-                    <img src="/trash.svg"></img>
+                    <img src="/trash.svg" alt="trash" />
                   </button>
                   <button
                     className="cart-button"
@@ -65,7 +65,7 @@ function WishListContent() {
                       alert("장바구니에 담았습니다.");
                     }}
                   >
-                    <img src="/cart.svg"></img>
+                    <img src="/cart.svg" alt="cart" />
                   </button>
                 </div>
               </div>

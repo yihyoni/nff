@@ -40,7 +40,7 @@ function SearchItems() {
       .catch((err) => {
         console.error("상품 데이터 불러오기 실패", err);
       });
-  }, []);
+  }, [dispatch]);
 
   // 로딩중
   if (isLoading) return <p>로딩중...</p>;

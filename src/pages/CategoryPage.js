@@ -23,7 +23,7 @@ function CategoryPage() {
   // 페이지 진입 시 카테고리 설정 + 첫 페이지로 초기화
   useEffect(() => {
     dispatch(setCurrentCategory(category));
-  }, [category]);
+  }, [category, dispatch]);
 
   return (
     <div className="wrapper">

@@ -15,7 +15,7 @@ function ProductItems({ category }) {
 
   // 상품 목록 담을 그릇 - 초기값으로 빈 배열 설정
   // 원본과 화면에 보여줄 데이터를 분리해서 상태로 관리
-  const [originalData, setOriginalData] = useState([]); // 상품 원본 보관용
+  // const [originalData, setOriginalData] = useState([]); // 상품 원본 보관용
   const [visibleData, setVisibleData] = useState([]); // 사용자한테 보여줄 상품 데이터
 
   // 상품 데이터(외부데이터) 갖고오기 - 처음 화면에 나타날 때만 실행
@@ -35,7 +35,7 @@ function ProductItems({ category }) {
       .catch((error) => {
         console.error("데이터 로드 실패:", error);
       });
-  }, [category]);
+  }, [category, dispatch]);
 
   // 처음에 데이터 없는 상태라 빈배열인 경우 오류 방지
   if (visibleData.length === 0) {

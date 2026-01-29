@@ -24,7 +24,7 @@ function WishListPage() {
       alert("로그인 후 이용해주세요!");
       navigate("/login"); // 로그인 안 된 상태 - 로그인 페이지로 이동
     }
-  }, [LoggedIn]); // 렌더 직후 로그인 상태를 검사해 접근을 제어
+  }, [LoggedIn, navigate]); // 렌더 직후 로그인 상태를 검사해 접근을 제어
 
   return (
     <div className="wrapper">
