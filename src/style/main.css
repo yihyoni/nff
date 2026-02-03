@@ -266,7 +266,6 @@ header .ticker-wrap .ticker li {
 .item-info {
   display: flex;
   flex-direction: column;
-  margin-top: 16px;
   gap: clamp(0.5625rem, 0.63vw, 1.25rem);
 }
 .item-info p {
@@ -672,17 +671,17 @@ select:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   border-bottom: 1px solid #da7c98;
   width: 100%;
   padding: 50px 25px;
   gap: 16px;
 }
-.search-container .search-item {
+.search-container .search-item a {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: 16px;
 }
 .search-container .search-item img {
   margin: auto;
@@ -723,5 +722,6 @@ select:focus {
   }
   .item-info {
     width: 82px;
+    margin: 0 auto;
   }
 }/*# sourceMappingURL=main.css.map */
