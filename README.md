@@ -106,10 +106,10 @@ src
  ┣ index.css
  ┗ store.js
 ```
-components: UI 단위 컴포넌트 (콘텐츠/사이드바/오버레이 등)
-pages: 라우팅 단위 페이지 컴포넌트
-store: Redux Toolkit slice 및 전역 상태 관리
-style: SCSS 기반 스타일 관리 및 빌드된 CSS
+- components: UI 단위 컴포넌트 (콘텐츠/사이드바/오버레이 등)
+- pages: 라우팅 단위 페이지 컴포넌트
+- store: Redux Toolkit slice 및 전역 상태 관리
+- style: SCSS 기반 스타일 관리 및 빌드된 CSS
 
 ## 📷 Screenshots
 ```
